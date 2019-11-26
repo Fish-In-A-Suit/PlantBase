@@ -1,0 +1,121 @@
+@font-face{
+  src:url("../fonts/Comfortaa-Bold.ttf");
+  font-family: comfortaa_bold;
+}
+
+.navigationBar{
+  width: 100%;
+  height: 44px;
+
+  min-width: 760px;
+
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 50px;
+
+  background-color: #2D3436;
+  position: sticky;
+}
+
+#navigationBar_homeIcon{
+  position: relative;
+  left: 8px;
+  top: 4px;
+  float: left;
+  display: inline-block;
+
+  min-width: 24px;
+  min-height: 24px;
+  max-width: 36px;
+  max-height: 36px;
+
+  width: 36px;
+  height: 36px;
+
+  margin-right: 20px;
+}
+
+#navigationBar_homeIcon img {
+  width: 80%;
+  height: 80%;
+}
+
+.navigationBar_options{
+  float:left;
+
+  height:44px;
+  letter-spacing: normal;
+  display: inline;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul{
+  position: relative;
+}
+
+ul li img {
+  display: block;
+  transition: 0.9s;
+  width: 48px;
+}
+
+ul li {
+  float: right;
+
+  width: 160px;
+  height: 44px;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: comfortaa_bold;
+  transition: 0.9s;
+  text-decoration: none;
+}
+
+li a:hover{
+  background-color: #111;
+}
+
+/*
+ul li:nth-child(5).active ~ .slide {
+  left: 12px;
+  opacity : 1;
+}
+ul li:nth-child(4).active ~ .slide {
+  left: 160px;
+  opacity: 1;
+}
+ul li:nth-child(3).active ~ .slide {
+  left: 160px;
+  opacity: 1;
+}
+ul li:nth-child(2).active ~ .slide {
+  left: 320px;
+  opacity: 1;
+}
+ul li:nth-child(1).active ~ .slide {
+  left: 480px;
+  opacity: 1;
+}
+*/
+
+.slide {
+  position: absolute;
+  width: 48px;
+  height: 44px;
+  top: 0;
+  left: 0;
+  background: #111;
+  z-index: -1;
+  transition: 0.5s;
+  opacity: 0.5;
+}
