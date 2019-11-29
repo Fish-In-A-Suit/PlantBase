@@ -1,0 +1,45 @@
+@font-face{
+  src: url(/fonts/Comfortaa-Bold.ttf);
+  font-family: comfortaa_bold;
+}
+
+@font-face{
+  src: url("/fonts/Linotte/Linotte Light.otf");
+  font-family: linotte_light;
+}
+
+@font-face{
+  src: url("/fonts/Comic/comic.ttf");
+  font-family: comic_sans_ms;
+}
+
+@font-face{
+  src: url("/fonts/Comic/comic_extrabold.ttf");
+  font-family: comic_extrabold;
+}
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+.content{
+/*
+  border-style: dotted;
+  border-color: #ff0000;
+*/
+  min-width: 326px;
+
+  /*
+  margin-right: 8px;
+  margin-left: 8px;
+  */
+}
+
+.additionalInfo{
+  /*
+  border-style: dotted;
+  border-color: #0000ff;
+  */
+  padding-left: 8px;
+}

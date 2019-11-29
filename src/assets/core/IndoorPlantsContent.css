@@ -1,0 +1,10 @@
+@font-face {
+  src: url("/fonts/Linotte/Linotte Bold.otf");
+  font-family: linotte_bold;
+}
+
+.content_h1{
+  position: relative;
+  font-family: linotte_bold;
+  left: 20px;
+}

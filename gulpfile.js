@@ -15,7 +15,7 @@ function watch() {
     browserSync.init({
         server: {
            baseDir: "./src",
-           index: "/index.html"
+           index: "/MainPage.html"
         }
     });
     gulp.watch('src/scss/**/*.scss', style)

@@ -1,13 +1,19 @@
 $(document).ready(function(){
-  loadPlantCard("#trendingPlant1", "image/plants/papip.png", "Pepperomia", 2, 30, 20);
-  loadPlantCard("#trendingPlant2", "image/plants/pilea_peperomioides.png", "P. peperomioides", 4, 20, 10);
+  loadTrendingPlantCard("#trendingPlant1", "assets/image/plants/papip.png", "Pepperomia", 2, 30, 20);
+  loadTrendingPlantCard("#trendingPlant2", "assets/image/plants/pilea_peperomioides.png", "Money plant", 4, 20, 10);
+  loadTrendingPlantCard("#trendingPlant3", "assets/image/plants/zz_plant.png", "ZZ plant", 1, 30, 80);
+  loadTrendingPlantCard("#trendingPlant4", "assets/image/plants/aloe.png", "Aloe", 1, 15, 30);
+
+  loadRegularPlantCard("#regularPlant1", "assets/image/plants/snake_plant.png", "Snake plant", 1, 15, 30);
+  loadRegularPlantCard("#regularPlant2", "assets/image/plants/crown_of_thorns.png", "Crown of thorns", 3, 15, 30);
+  loadRegularPlantCard("#regularPlant3", "assets/image/plants/schefflera.png", "Schefflera", 3, 15, 30);
 });
 
-function loadPlantCard(srcDivId, imgPath, rawName, waterLevel, price, height) {
+function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, price, height) {
   var srcDiv = $(srcDivId);
   var name = refactorNameToId(rawName);
 
-  srcDiv.load("core/PlantCard.html", null, function(responsetxt, statusTxt, xhr){
+  srcDiv.load(plantCardHTML, null, function(responsetxt, statusTxt, xhr){
     var imgSrcContainer = srcDiv.find("#imgSrc");
     var plantNameContainer = srcDiv.find("#plant_name");
     var waterDropletsContainer = srcDiv.find("#plantcard_watering_info");
@@ -60,7 +66,28 @@ function loadPlantCard(srcDivId, imgPath, rawName, waterLevel, price, height) {
     updatedAvgHeightContainer.html(height + "cm");
 
     addWaterDroplets(updatedWaterDropletsContainer, waterLevel);
+
+    //updates the button id
+    var button = srcDiv.find("#plantcard_information_button");
+    var newButtonId = button.attr("id") + "_" + name;
+    button.attr("id", newButtonId);
+    console.log("Updated button id: " + button.attr("id"));
+
+    /*
+    var buttonClickEventAsString = "loadAdditionalInfo(" + button.attr("id") + ");"
+    button.attr("onClick", buttonClickEventAsString); */
+    button.on("click", function() {
+      loadAdditionalInfo(button.attr("id"));
+    })
   });
+}
+
+function loadTrendingPlantCard(srcDivId, imgPath, rawName, waterLevel, price, height) {
+  loadPlantCard("assets/core/TrendingPlantCardResponsive.html", srcDivId, imgPath, rawName, waterLevel, price, height);
+}
+
+function loadRegularPlantCard(srcDivId, imgPath, rawName, waterLevel, price, height) {
+  loadPlantCard("assets/core/RegularPlantCardResponsive.html", srcDivId, imgPath, rawName, waterLevel, price, height);
 }
 
 function addWaterDroplets(container, count) {
@@ -111,7 +138,7 @@ function addWaterDroplet(container) {
 
   //creation using jQuery
   var imgView = $('<img class="water_droplet">'); //equivalent to document.createElement("IMG");
-  imgView.attr("src", "image/water_droplet.svg");
+  imgView.attr("src", "assets/image/water_droplet.svg");
   imgView.attr("width", "15px");
   imgView.attr("height", "20px");
   imgView.attr("alt", "water droplet");

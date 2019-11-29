@@ -1,0 +1,175 @@
+@font-face {
+  src: url(/fonts/Comfortaa-Light.ttf);
+  font-family: comfortaa_light;
+}
+
+@font-face{
+  src: url(/fonts/Moon-Bold.otf);
+  font-family: moon_bold;
+}
+
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+img {
+  /*
+  border-color: #ffff44;
+  border-style: solid;
+  */
+}
+
+.plantcard_container{
+  position: relative;
+  /*
+  border-style: solid;
+  border-color: #00ffff;
+  */
+
+  min-width: 220px;
+  max-width: 221px;
+
+  min-height: 360px;
+  max-height: 361px;
+
+  text-align: center;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.plantcard_image{
+  /*
+  border-color: #ffff00;
+  border-style: dotted;
+*/
+  /*this centers this div bc of text-align center on parent*/
+  display: inline-block;
+
+  width: 160px;
+  height: 200px;
+}
+
+.plant-name{
+  position: relative;
+  width:100;
+  height:100%;
+
+  font-family: comfortaa_light;
+  font-size: 24px;
+/*
+  border-style:dashed;
+  border-color: #ff4555;*/
+  margin-bottom: 24px;
+}
+
+.plantcard_specification {
+/*
+  border-style: dotted;
+  border-color: #00fff9;
+*/
+  margin-left: 4px;
+  margin-right: 12px;
+  height: 34px;
+}
+
+.plantcard_watering_info {
+  text-align: left;
+  margin-left: 4px;
+  padding-left: 0px;
+
+/*
+  border-color: #00ffa4;
+  border-style: dashed;
+  */
+
+  height: 40px;
+}
+
+.water_droplet{
+  transform: scaleY(1.6);
+  transform: scaleX(1.2);
+}
+
+.plantcard_best_price {
+  /*
+  border-style: dashed;
+  border-color: #fff1d5;
+  */
+  padding-left: 0px;
+  padding-right: 4px;
+  margin-right: 8px;
+
+  height: 40px;
+}
+.plantcard_best_price p {
+  font-family: comfortaa_light;
+  font-size: 20px;
+  color: #A2A2A2;
+}
+
+.plantcard_avg_size{
+  padding-right: 0px;
+  padding-left: 0px;
+  /*
+  border-style: dashed;
+  border-color: #55f1a3;
+  */
+  text-align: right;
+
+  height: 40px;
+}
+
+.plantcard_avg_size p {
+  font-family: comfortaa_light;
+  font-size: 20px;
+  color:#A2A2A2;
+
+  /*
+  border-color: #ff0000;
+  border-style: solid;
+  */
+}
+
+.plantcard_divider{
+  width:100%;
+  height: 2px;
+  background-color: #E1E1E1;
+}
+
+.plantcard_information_button{
+  background: none;
+  border: none;
+  width: 55%;
+  height: 30;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  padding-left:2%;
+  padding-right:2%;
+  border-radius: 4px;
+  display:inline-block;
+  font-family: moon_bold;
+  font-size: 14px;
+  transition: .6s;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.trending {
+  background-color: #FAA613; /* dark tangerine */
+}
+
+.regular {
+  background-color: #338033; /* mughal green */
+}
+
+button:hover{
+  background: #8AF3FF; /* electric blue */
+  cursor: pointer;
+}
+
+.plantcard_container:hover{
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}

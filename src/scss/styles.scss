@@ -1,11 +1,26 @@
+@font-face {
+  src: url(fonts/Moon-Bold.ttf);
+  font-family: moon_bold;
+}
+
+@font-face {
+  src: url(fonts/Moon-Light.ttf);
+  font-family: moon_light;
+}
+
+@font-face{
+  src: url(../fonts/VRCF_ExtraBold.ttf);
+  font-family: visby_extrabold;
+}
+
 $theme-colors: (
      "primary": #2D3436
 );
 
-@import "node_modules/bootstrap/scss/bootstrap";
-
 body {
     color: black;
     background: rgb(244,244,244);
-    height: 400vh;
 }
+
+
+@import "node_modules/bootstrap/scss/bootstrap";

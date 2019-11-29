@@ -1,0 +1,160 @@
+.ai_secondaryNavbar {
+  width: 100%;
+  height: 44px;
+  /*
+  border-style: dashed;
+  border-color: #00ff00;
+  */
+
+  background-color: #2F2F2F;
+}
+
+.ai_plantName {
+  font-family: comfortaa_bold;
+  font-size: 22px;
+  color:#ffffff;
+  padding-left: 8px;
+  padding-top: 8px;
+}
+
+.buttonDiv{
+  padding-top: 6px;
+  margin-right: 8px;
+  float: right;
+}
+
+.buttonDiv ul {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+}
+
+.buttonDiv ul li{
+  position: relative;
+  list-style: none;
+  width: 32px;
+  height: 32px;
+  background: #08605F;
+  margin: 0 3px;
+  border-radius: 50%;
+  transition: .5s;
+}
+
+.buttonDiv ul li:hover {
+  background: #028E6B;
+}
+
+.buttonDiv ul li span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 3px solid #fff;
+  transition: .5s;
+}
+
+/*setup for next*/
+.buttonDiv ul li.next span {
+  top: 50%;
+  right: 40%;
+  transform: translateY(-50%) rotate(-45deg);
+  border-left: none;
+  border-top: none;
+}
+
+.buttonDiv ul li.next:hover span {
+  right: 24%;
+}
+
+.buttonDiv ul li.next span:before {
+  content: '';
+    position: absolute;
+    width: 14px;
+    height: 3px;
+    background: #fff;
+    transform-origin: right;
+    transform: rotate(45deg) translate(2px, 9px) scaleX(0);
+    transition: .5s;
+}
+
+.buttonDiv ul li.next:hover span:before{
+  transform: rotate(45deg) translate(1px, 9px) scaleX(1);
+}
+
+/*setup for previous*/
+.buttonDiv ul li.prev span {
+  top: 50%;
+  left: 40%;
+  transform: translateY(-50%) rotate(-45deg);
+  border-right: none;
+  border-bottom: none;
+}
+
+.buttonDiv ul li.prev:hover span {
+  left: 24%;
+}
+
+.buttonDiv ul li.prev span:before {
+  content: '';
+    position: absolute;
+    width: 14px;
+    height: 3px;
+    background: #fff;
+    transform-origin: left;
+    transform: rotate(45deg) translate(-2px, -1px) scaleX(0);
+    transition: .5s;
+}
+
+.buttonDiv ul li.prev:hover span:before{
+  transform: rotate(45deg) translate(-2px, -1px) scaleX(1);
+}
+
+.ai_plantInfoTableDiv {
+  margin-left: 8px;
+}
+.ai_plantInfoTable {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 3px 3px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.ai_plantInfoTable thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.ai_plantInfoTable th, .ai_plantInfoTable td {
+  padding: 12px 15px;
+  font-family: linotte_light;
+}
+
+.ai_plantInfoTable tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.ai_plantInfoTable tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+/*setup for ai_plantInfoExplanationDiv*/
+.ai_plantInfoExplanationDiv {
+  padding-left: 8px;
+  display: inline-block; /*to fix the issue where no line would be broken after heading*/
+}
+
+.ai_plantInfoExplanation_plantName{
+  font-family: comic_extrabold;
+}
+
+.ai_plantInfoExplanation_header {
+  font-family: comic_sans_ms;
+}
+
+.ai_plantInfoExplanation_text {
+  font-family: linotte_light;
+}
