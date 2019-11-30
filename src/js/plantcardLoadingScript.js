@@ -1,8 +1,8 @@
 $(document).ready(function(){
-  loadTrendingPlantCard("#trendingPlant1", "assets/image/plants/papip.png", "Pepperomia", 2, 30, 20);
+  loadTrendingPlantCard("#trendingPlant1", "assets/image/plants/papip.png", "Peperomia", 2, 30, 20);
   loadTrendingPlantCard("#trendingPlant2", "assets/image/plants/pilea_peperomioides.png", "Money plant", 4, 20, 10);
   loadTrendingPlantCard("#trendingPlant3", "assets/image/plants/zz_plant.png", "ZZ plant", 1, 30, 80);
-  loadTrendingPlantCard("#trendingPlant4", "assets/image/plants/aloe.png", "Aloe", 1, 15, 30);
+  loadTrendingPlantCard("#trendingPlant4", "assets/image/plants/aloe.png", "Aloe vera", 1, 15, 30);
 
   loadRegularPlantCard("#regularPlant1", "assets/image/plants/snake_plant.png", "Snake plant", 1, 15, 30);
   loadRegularPlantCard("#regularPlant2", "assets/image/plants/crown_of_thorns.png", "Crown of thorns", 3, 15, 30);

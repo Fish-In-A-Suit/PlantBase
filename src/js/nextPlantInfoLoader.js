@@ -1,6 +1,6 @@
 /*This script provides functionality for the next button in the secondary navigationBar
   of additional plant info */
-var plantNames = ["Pepperomia", "Money_plant", "ZZ_plant", "Aloe", "Snake_plant", "Crown_of_thorns", "Schefflera"];
+var plantNames = ["Peperomia", "Money_plant", "ZZ_plant", "Aloe_vera", "Snake_plant", "Crown_of_thorns", "Schefflera"];
 
 function loadNextPlantInfo() {
   console.log("loadNextPlantInfo: currentPlant = " + currentPlant);
