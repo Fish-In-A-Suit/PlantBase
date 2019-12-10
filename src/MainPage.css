@@ -43,3 +43,27 @@
   */
   padding-left: 8px;
 }
+
+.contsearch:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.contsearch {
+  padding: 0;
+}
+
+.gsearch {
+  padding: .75rem 1.25rem;
+  display: block;
+  color: #333333;
+}
+
+.gsearch:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
+.form-control{
+  border-radius: 4px;
+}

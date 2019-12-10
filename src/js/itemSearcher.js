@@ -1,7 +1,7 @@
 /*Provides the functionality to search for items on PlantBase*/
 $(document).ready(function() {
   var searchField = $("#searchField");
-  var submitButton = $(".submitButton");
+  var submitButton = $("#submitButton");
 
   submitButton.on("click", function() {
     console.log("searchField = " + searchField);
@@ -58,10 +58,24 @@ function exactSearch(searchText) {
     } else {
       //console.log("Display name not matching. Testing if any of other names match for plant " + displayName);
       for(j = 0; j<otherNames.length; j++) {
-        //console.log("testing " + otherNames[j]);
+        console.log("testing other name:" + otherNames[j]);
         if(searchText === otherNames[j]) {
           console.log("Successful match for " + searchText + "! (on)");
           return plantReference;
+        }
+
+        /*if other name contains more than one word, check each one for match*/
+        //TODO: FIND WHY THIS ISNT CALLED!
+        var otherNameSplit = otherNames[j].split(" ");
+        if(otherNameSplit.length > 1) {
+
+        }
+        for(l = 0; l<otherNameSplit.length; l++) {
+          console.log("testing other name split: " + otherNameSplit[l]);
+          if(otherNameSplit[l] === searchText) {
+            console.log("Successful match for " + searchText + "! (on)");
+            return plantReference;
+          }
         }
       }
       console.log("No search query matches with search text '" + searchText + "' for plant " + plantReference);
