@@ -17,6 +17,18 @@ $(document).ready(function() {
 given search result and highlights it.*/
 function highlight(searchResult) {
   console.log("Highlighting search result " + searchResult);
+
+  var contentDivId = "contentDiv_" + searchResult; //the content div (background) of the specified searchResult
+  var contentDiv = $("#" + contentDivId);
+
+  highlightBorder(contentDiv);
+}
+
+/*highlights the border of the content div*/
+function highlightBorder(contentDiv) {
+  /*jquery or javascript cannot directly access :after or :before --> therefore, a workaround is needed
+  by toggling a predetermined class with the desired effects. refer to this for explanation: https://stackoverflow.com/questions/5041494/selecting-and-manipulating-css-pseudo-elements-such-as-before-and-after-usin/21709814#21709814*/
+  contentDiv.toggleClass("special");
 }
 
 /*Performs exact and approximate searches on all of the possible search quereis*/

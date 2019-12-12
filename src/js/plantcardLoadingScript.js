@@ -14,11 +14,16 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
   var name = refactorNameToId(rawName);
 
   srcDiv.load(plantCardHTML, null, function(responsetxt, statusTxt, xhr){
+    console.log("Loading plantcard " + plantCardHTML);
+    var contentDiv = srcDiv.find("#pc_container");
     var imgSrcContainer = srcDiv.find("#imgSrc");
     var plantNameContainer = srcDiv.find("#plant_name");
     var waterDropletsContainer = srcDiv.find("#plantcard_watering_info");
     var priceContainer = srcDiv.find("#price");
     var avgHeightContainer = srcDiv.find("#avgHeight");
+
+    var newContentDivId = srcDiv.attr("id") + "_" + name;
+    var reformattedContentDivId = reformatContentDivId(newContentDivId);
 
     var newImgSrcContainerId = imgSrcContainer.attr("id") + "_" + name;
     var newPlantNameContainerId = plantNameContainer.attr("id") + "_" + name;
@@ -34,6 +39,7 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
 
     console.log("-------");
 
+    console.log("test: reformattedContentDivId = " + reformattedContentDivId);
     console.log(newImgSrcContainerId);
     console.log(newPlantNameContainerId);
     console.log(newWaterDropletsContainerId);
@@ -42,6 +48,7 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
 
     console.log("-------");
 
+    contentDiv.attr("id", reformattedContentDivId);
     imgSrcContainer.attr("id", newImgSrcContainerId);
     plantNameContainer.attr("id", newPlantNameContainerId);
     waterDropletsContainer.attr("id", newWaterDropletsContainerId);
@@ -54,6 +61,7 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
     console.log("" + priceContainer.attr("id"));
     console.log("" + avgHeightContainer.attr("id"));
 
+    var updatedContentDiv = srcDiv.find("#" + newContentDivId);
     var updatedImgSrcContainer = srcDiv.find("#"+newImgSrcContainerId);
     var updatedPlantNameContainer = srcDiv.find("#"+newPlantNameContainerId);
     var updatedWaterDropletsContainer = srcDiv.find("#"+newWaterDropletsContainerId);
@@ -155,4 +163,37 @@ Adds underscores between whitespaces (if any) of a name so it can be used as an 
 function refactorNameToId(name) {
   var result = name.split(".").join("_");
   return result.split(" ").join("_");
+}
+
+/*
+newContentDivId = "trendingPlant1_Crown_of_thorns... the purpose of this is to only return Crown_of_thorns"
+*/
+function reformatContentDivId(newContentDivId) {
+  var split = newContentDivId.split("_");
+  var resultArr = [];
+  var resultString = "";
+
+  if(split.length > 2) {
+    //console.log("split is greater than two: " + split.length);
+    for(i=1;i<split.length;i++) {
+      //console.log("i: " + i + " ... split[i]: " + split[i]);
+      resultArr.push(split[i]);
+    }
+
+    console.log("array: " + resultArr);
+    for(j=0; j<resultArr.length; j++) {
+      if(j==(resultArr.length-1)) {
+        //end of array
+        resultString+=resultArr[j];
+      } else {
+        resultString+=resultArr[j];
+        resultString+="_";
+      }
+    }
+    //console.log("returning: " +resultString);
+    return "contentDiv_" + resultString;
+  } else {
+    //console.log("returning: " + split[1]);
+    return "contentDiv_" + split[1];
+  }
 }

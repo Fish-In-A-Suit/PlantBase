@@ -36,8 +36,34 @@ img {
 
   text-align: center;
 
+  background: #fff;
+
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.3s ease-in-out;
+}
+
+
+@keyframes animatedBorder {
+  0% { background-position:  0 50%;}
+  50% { background-position:  100% 50%;}
+  100% { background-position:  0 50%;}
+}
+
+.plantcard_container.special:after{
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #fff;
+  z-index: -2;
+  filter: blur(2px);
+}
+
+.plantcard_container.special:before, .plantcard_container.special:after {
+  background: linear-gradient(235deg, #89ff00, #ffffff, #00bcd4);
+  animation: animatedBorder 4s infinite;
 }
 
 .plantcard_image{
