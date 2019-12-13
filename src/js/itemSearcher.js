@@ -10,6 +10,14 @@ $(document).ready(function() {
     console.log("searchText = " + searchTextUppercase);
 
     highlight(searchForItem(searchTextUppercase));
+
+    /*
+    if(checkPageCorrectness == true) {
+      highlight(searchForItem(searchTextUppercase));
+  } else {
+  loadAndHighlight(searchForItem(searchTextUppercase));
+}
+    */
   })
 })
 
@@ -21,21 +29,33 @@ function highlight(searchResultBundle) {
   var contentDivId = "contentDiv_" + searchResultBundle[0]; //the content div (background) of the specified searchResult
   var contentDiv = $("#" + contentDivId);
 
-  scrollIntoView(contentDiv);
-  animateBorder(contentDiv);
-  setTimeout(function(){
+  console.log("Highlight test: title of this page is: " + document.title);
+  if(checkPageCorrectness(searchResultBundle[1]) == false) {
+    //if not on correct page, load the correct page from searchResultBundle[1]
+    loadPageWithHighlighDiv(searchResultBundle[1], contentDivId); //this method in pageLoader.js
+  } else {
+    scrollIntoView(contentDiv);
+    animateBorder(contentDiv);
+    setTimeout(function(){
     contentDiv.toggleClass("special");
-  }, 4000); //quit after 4s
-}
-
-/*highlights the border of the content div*/
-function animateBorder(contentDiv) {
-  /*jquery or javascript cannot directly access :after or :before --> therefore, a workaround is needed
-  by toggling a predetermined class with the desired effects. refer to this for explanation: https://stackoverflow.com/questions/5041494/selecting-and-manipulating-css-pseudo-elements-such-as-before-and-after-usin/21709814#21709814*/
-  contentDiv.toggleClass("special");
+    }, 4000); //quit after 4s
+  }
 }
 
 
+
+/*Checks if the specified page reference mathces the current page.*/
+function checkPageCorrectness(pageReference) {
+  var currentPageTitle = document.title;
+  var currentPageReference = getPageReference(currentPageTitle);
+  if(currentPageReference === pageReference) {
+    console.log("Search element is on correct page.");
+    return true;
+  } else {
+    console.log("Search element is on some other page.");
+    return false;
+  }
+}
 
 /*Performs exact and approximate searches on all of the possible search quereis*/
 function searchForItem(searchText) {
@@ -114,7 +134,7 @@ returns the most approximate plant name or "" if all approximations are less tha
 function approximateSearch(searchText) {
   var chars = searchText.split('');
   var result=[];
-  
+
   if(chars.length<2) {
     console.log("Too short search text. Cannot perform approximate search.");
     return [];
@@ -130,6 +150,7 @@ function approximateSearch(searchText) {
     var plantReference = searchQuery[0];
     var displayName = searchQuery[1];
     var otherNames = searchQuery[2];
+    var pageReference = searchQuery[3];
 
     //test display name
     for(k = 0; k<segments.length; k++) {
