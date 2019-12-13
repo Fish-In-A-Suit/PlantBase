@@ -36,6 +36,10 @@
   */
 }
 
+.navbar {
+  margin-left: 20px;
+}
+
 .additionalInfo{
   /*
   border-style: dotted;
@@ -82,13 +86,17 @@ footer h2{
 }
 
 .footer-bottom{
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
 
   background: #111;
   padding: 40px 0;
+}
+
+.segment{
+  margin-top: 24px;
 }
 
 .segment-one h3{

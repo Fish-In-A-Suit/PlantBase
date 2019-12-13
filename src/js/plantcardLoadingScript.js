@@ -16,20 +16,37 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
   srcDiv.load(plantCardHTML, null, function(responsetxt, statusTxt, xhr){
     console.log("Loading plantcard " + plantCardHTML);
     var contentDiv = srcDiv.find("#pc_container");
+    //var loaderDiv = srcDiv.find("#loader");
     var imgSrcContainer = srcDiv.find("#imgSrc");
     var plantNameContainer = srcDiv.find("#plant_name");
     var waterDropletsContainer = srcDiv.find("#plantcard_watering_info");
     var priceContainer = srcDiv.find("#price");
     var avgHeightContainer = srcDiv.find("#avgHeight");
 
+    /*
+    var span1 = srcDiv.find("#span1");
+    var span2 = srcDiv.find("#span2");
+    var span3 = srcDiv.find("#span3");
+    var span4 = srcDiv.find("#span4");
+    */
+
     var newContentDivId = srcDiv.attr("id") + "_" + name;
     var reformattedContentDivId = reformatContentDivId(newContentDivId);
 
+    //var newLoaderDivId = loaderDiv.attr("id") + "_" + name;
     var newImgSrcContainerId = imgSrcContainer.attr("id") + "_" + name;
     var newPlantNameContainerId = plantNameContainer.attr("id") + "_" + name;
     var newWaterDropletsContainerId = waterDropletsContainer.attr("id") + "_" + name;
     var newPriceContainerId = priceContainer.attr("id") + "_" + name;
     var newAvgHeightContainerId = avgHeightContainer.attr("id") + "_" + name;
+
+    /*
+    var newSpan1Id = span1.attr("id") + "_" + name;
+    var newSpan2Id = span1.attr("id") + "_" + name;
+    var newSpan3Id = span1.attr("id") + "_" + name;
+    var newSpan4Id = span1.attr("id") + "_" + name;
+    var allSpanIds = [newSpan1Id, newSpan2Id, newSpan3Id, newSpan4Id];
+    */
 
     console.log("" + imgSrcContainer.attr("id"));
     console.log("" + plantNameContainer.attr("id"));
@@ -49,11 +66,19 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
     console.log("-------");
 
     contentDiv.attr("id", reformattedContentDivId);
+    //loaderDiv.attr("id", newLoaderDivId);
     imgSrcContainer.attr("id", newImgSrcContainerId);
     plantNameContainer.attr("id", newPlantNameContainerId);
     waterDropletsContainer.attr("id", newWaterDropletsContainerId);
     priceContainer.attr("id", newPriceContainerId);
     avgHeightContainer.attr("id", newAvgHeightContainerId);
+
+    /*
+    span1.attr("id", newSpan1Id);
+    span2.attr("id", newSpan2Id);
+    span3.attr("id", newSpan3Id);
+    span4.attr("id", newSpan4Id);
+    */
 
     console.log("" + imgSrcContainer.attr("id"));
     console.log("" + plantNameContainer.attr("id"));
@@ -67,6 +92,12 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
     var updatedWaterDropletsContainer = srcDiv.find("#"+newWaterDropletsContainerId);
     var updatedPriceContainer = srcDiv.find("#"+newPriceContainerId);
     var updatedAvgHeightContainer = srcDiv.find("#"+newAvgHeightContainerId);
+
+    /*
+    loaders.push(newLoaderDivId, allSpanIds);
+    console.log("pushed to loaders. There are now: " + (loaders.length/2) + " loaders")
+    updateLoaderSpans();
+    */
 
     updatedImgSrcContainer.attr("src", imgPath);
     updatedPlantNameContainer.html(rawName);
@@ -195,5 +226,15 @@ function reformatContentDivId(newContentDivId) {
   } else {
     //console.log("returning: " + split[1]);
     return "contentDiv_" + split[1];
+  }
+}
+
+/*this is important for animation purposes!*/
+function updateLoaderSpans() {
+  for(i=0; i<loaders.length; i=i*2) {
+    var currentLoader = loaders(i);
+    var correspondingSpans = loaders(i+1);
+
+    console.log("x:y = " + currentLoader.style.left + " " + currentLoader.style.top);
   }
 }

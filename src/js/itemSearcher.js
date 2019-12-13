@@ -15,40 +15,46 @@ $(document).ready(function() {
 
 /*Highlights the given searchResult. It finds the correct plantcard corresponding to the
 given search result and highlights it.*/
-function highlight(searchResult) {
-  console.log("Highlighting search result " + searchResult);
+function highlight(searchResultBundle) {
+  console.log("Highlighting search result " + searchResultBundle[0]);
 
-  var contentDivId = "contentDiv_" + searchResult; //the content div (background) of the specified searchResult
+  var contentDivId = "contentDiv_" + searchResultBundle[0]; //the content div (background) of the specified searchResult
   var contentDiv = $("#" + contentDivId);
 
-  highlightBorder(contentDiv);
+  scrollIntoView(contentDiv);
+  animateBorder(contentDiv);
+  setTimeout(function(){
+    contentDiv.toggleClass("special");
+  }, 4000); //quit after 4s
 }
 
 /*highlights the border of the content div*/
-function highlightBorder(contentDiv) {
+function animateBorder(contentDiv) {
   /*jquery or javascript cannot directly access :after or :before --> therefore, a workaround is needed
   by toggling a predetermined class with the desired effects. refer to this for explanation: https://stackoverflow.com/questions/5041494/selecting-and-manipulating-css-pseudo-elements-such-as-before-and-after-usin/21709814#21709814*/
   contentDiv.toggleClass("special");
 }
 
+
+
 /*Performs exact and approximate searches on all of the possible search quereis*/
 function searchForItem(searchText) {
   console.log("Searching for: " + searchText);
-  var searchResult = "";
-  searchResult = exactSearch(searchText);
+  var bundle = [];
+  bundle = exactSearch(searchText); //[0]: plantReference, [1]: page reference
 
-  if(searchResult == undefined) {
+  if(bundle == undefined) {
     console.log("Exact search for query " + searchText + " unsuccessful. Starting approximate search");
-    searchResult = approximateSearch(searchText);
+    bundle = approximateSearch(searchText);
 
-    if(searchResult === "") {
+    if(bundle.length == 0) {
       console.log("There are no matches for search: " + searchText);
-      return "";
+      return [];
     } else {
-      return searchResult;
+      return bundle;
     }
   } else {
-    return searchResult;
+    return bundle;
   }
 }
 
@@ -60,20 +66,26 @@ function exactSearch(searchText) {
     var plantReference = searchQuery[0];
     var displayName = searchQuery[1];
     var otherNames = searchQuery[2];
+    var pageReference = searchQuery[3];
+    var result=[];
 
     //console.log(i + ": inspecting " + displayName);
 
     /*tests if the search text matches either the display name of the plant or any other common names*/
     if(searchText === displayName) {
       console.log("Successful match for " + searchText + "! (dp)");
-      return plantReference;
+      result.push(plantReference);
+      result.push(pageReference);
+      return result;
     } else {
       //console.log("Display name not matching. Testing if any of other names match for plant " + displayName);
       for(j = 0; j<otherNames.length; j++) {
         console.log("testing other name:" + otherNames[j]);
         if(searchText === otherNames[j]) {
           console.log("Successful match for " + searchText + "! (on)");
-          return plantReference;
+          result.push(plantReference);
+          result.push(pageReference);
+          return result;
         }
 
         /*if other name contains more than one word, check each one for match*/
@@ -86,7 +98,9 @@ function exactSearch(searchText) {
           console.log("testing other name split: " + otherNameSplit[l]);
           if(otherNameSplit[l] === searchText) {
             console.log("Successful match for " + searchText + "! (on)");
-            return plantReference;
+            result.push(plantReference);
+            result.push(pageReference);
+            return result;
           }
         }
       }
@@ -99,9 +113,11 @@ function exactSearch(searchText) {
 returns the most approximate plant name or "" if all approximations are less than 70% correct*/
 function approximateSearch(searchText) {
   var chars = searchText.split('');
+  var result=[];
+  
   if(chars.length<2) {
     console.log("Too short search text. Cannot perform approximate search.");
-    return "";
+    return [];
   }
 
   var segments = splitIntoSegmentsByThree(searchText);
@@ -126,7 +142,9 @@ function approximateSearch(searchText) {
     console.log("mc = " + matchCoefficient);
     if(matchCoefficient>matchSuccessThreshold) {
       console.log("approximateSearch: match successful for " + plantReference + " with match coefficient " + matchCoefficient);
-      return plantReference;
+      result.push(plantReference);
+      result.push(pageReference);
+      return result;
     }
   }
 
@@ -150,7 +168,9 @@ function approximateSearch(searchText) {
       var mc = matches.length/segments.length;
       if(mc>matchSuccessThreshold) {
         console.log("approximateSearch: match successful for " + plantReference + " with match coefficient " + mc);
-        return plantReference;
+        result.push(plantReference);
+        result.push(pageReference);
+        return result;
       }
     }
   }

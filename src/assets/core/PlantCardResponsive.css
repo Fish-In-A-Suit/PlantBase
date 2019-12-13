@@ -42,28 +42,157 @@ img {
   transition: box-shadow 0.3s ease-in-out;
 }
 
+.plantcard_container:before{
+  content:"";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, .1);
+  transition: 0.5s;
 
-@keyframes animatedBorder {
-  0% { background-position:  0 50%;}
-  50% { background-position:  100% 50%;}
-  100% { background-position:  0 50%;}
+/*
+  border-style: dashed;
+  border-color: #00ff00;
+  */
 }
 
-.plantcard_container.special:after{
+.plantcard_container span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+
+/*
+  border-style: dotted;
+  border-color: #ff0000;
+*/
+}
+
+.plantcard_container.special span:nth-child(1) {
+  transform: rotate(0deg);
+}
+
+.plantcard_container.special span:nth-child(1):before{
+  animation: animateX 4s linear infinite;
+}
+
+.plantcard_container.special span:nth-child(2):before {
   content: "";
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: #fff;
-  z-index: -2;
-  filter: blur(2px);
+  width: 2px;
+  height: 100%;
+  left: auto;
+  right: 0;
+  animation: animateY_right 4s linear infinite;
+  animation-delay: -2s;
 }
 
-.plantcard_container.special:before, .plantcard_container.special:after {
-  background: linear-gradient(235deg, #89ff00, #ffffff, #00bcd4);
-  animation: animatedBorder 4s infinite;
+.plantcard_container.special span:nth-child(3) {
+  transform: rotate(180deg);
+}
+
+.plantcard_container.special span:nth-child(3):before {
+  animation: animateX 4s linear infinite;
+}
+
+.plantcard_container.special span:nth-child(4):before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  animation: animateY_left 4s linear infinite;
+  animation-delay: -2s;
+}
+
+.plantcard_container span:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0px;
+  background: #fff;
+}
+
+.plantcard_container.special span:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0px;
+  background: #338033;
+}
+
+@keyframes animateX {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+@keyframes animateY_right {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  50.1% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    /*opacity: 0;*/
+  }
+}
+
+@keyframes animateY_left {
+  0% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  50.1% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: top;
+    /*opacity: 0;*/
+  }
 }
 
 .plantcard_image{
