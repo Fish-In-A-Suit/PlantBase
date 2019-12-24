@@ -1,3 +1,4 @@
+/*this script is responsible for loading up pages when the buttons of the navigation bar are clicked.*/
 $(document).ready(function() {
   var home = $(".home");
   var indoor_plants = $(".indoor_plants");
@@ -13,6 +14,10 @@ $(document).ready(function() {
   home.on('click', function(){
     console.log("Home clicked");
     //loadJumbotron();
+
+    //loadhomepagelocation
+    window.location.pathname = "/MainPage.html"
+
     jumbotronContainer.load("/assets/core/NavigationBarJumbotron.html");
     content.load("/assets/core/HomePageContent.html");
     document.title = TITLE_HOMEPAGE;
@@ -20,29 +25,40 @@ $(document).ready(function() {
 
   indoor_plants.on('click', function() {
     console.log("Indoor plants clicked");
-    jumbotronContainer.empty();
-    content.load("/assets/core/IndoorPlantsContent.html", null, function(responsetxt, statusTxt, xhr) {
-      $.getScript("js/plantcardLoadingScript.js");
-    });
-    document.title=TITLE_INDOOR_PLANTS;
+
+    //load indoor plants location
+    window.location.pathname="/IndoorPlants.html"
+
   })
 
   outdoor_plants.on('click', function(){
     console.log("Outdoor plants clicked");
+
+    //load outdoor plants location
+    window.location.pathname="/OutdoorPlants.html";
+
     jumbotronContainer.empty();
-    document.title = TITLE_OUTDOOR_PLANTS;
+    //document.title = TITLE_OUTDOOR_PLANTS;
   })
 
   decorations.on('click', function() {
     console.log("Decorations clicked");
+
+    //load decorations location
+    window.location.pathname="/Decorations.html";
+
     jumbotronContainer.empty();
-    document.title = TITLE_DECORATIONS;
+    //document.title = TITLE_DECORATIONS;
   })
 
   tools.on('click', function() {
     console.log("Tools clicked");
+
+    //load tools location
+    window.location.pathname="/Tools.html";
+
     jumbotronContainer.empty();
-    document.title = TITLE_TOOLS;
+    //document.title = TITLE_TOOLS;
   })
 })
 

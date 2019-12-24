@@ -295,6 +295,7 @@ img {
 }
 
 .plantcard_information_button{
+  position: relative;
   background: none;
   border: none;
   width: 55%;
@@ -310,6 +311,7 @@ img {
   transition: .6s;
   overflow: hidden;
   margin-top: 12px;
+  z-index: 10000;
 }
 
 .trending {

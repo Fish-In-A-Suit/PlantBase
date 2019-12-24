@@ -10,14 +10,6 @@ $(document).ready(function() {
     console.log("searchText = " + searchTextUppercase);
 
     highlight(searchForItem(searchTextUppercase));
-
-    /*
-    if(checkPageCorrectness == true) {
-      highlight(searchForItem(searchTextUppercase));
-  } else {
-  loadAndHighlight(searchForItem(searchTextUppercase));
-}
-    */
   })
 })
 
@@ -31,9 +23,18 @@ function highlight(searchResultBundle) {
 
   console.log("Highlight test: title of this page is: " + document.title);
   if(checkPageCorrectness(searchResultBundle[1]) == false) {
+    //DEPRECATED METHOD
     //if not on correct page, load the correct page from searchResultBundle[1]
-    loadPageWithHighlighDiv(searchResultBundle[1], contentDivId); //this method in pageLoader.js
+    //loadPageWithHighlighDiv(searchResultBundle[1], contentDivId); //this method in pageLoader.js
+
+    //new method: set state and then read from postPageLoader
+    saveItem(SS_HIGHLIGHT_TF, true);
+    saveItem(SS_HIGHLIGHT_PLANTCARD, contentDivId);
+
+    //load correct page
+    window.location.pathname= findCorrectPagePath(searchResultBundle[1]);
   } else {
+    saveItem(SS_HIGHLIGHT_TF, false); //highlighting while loading another page not neccessary
     scrollIntoView(contentDiv);
     animateBorder(contentDiv);
     setTimeout(function(){
@@ -54,6 +55,23 @@ function checkPageCorrectness(pageReference) {
   } else {
     console.log("Search element is on some other page.");
     return false;
+  }
+}
+
+function findCorrectPagePath(pageReference) {
+  switch(pageReference) {
+    case PR_HOMEPAGE:
+      return PATH_HOMEPAGE;
+    case PR_INDOOR_PLANTS:
+      return PATH_INDOOR_PLANTS;
+    case PR_OUTDOOR_PLANTS:
+      return PATH_OUTDOOR_PLANTS;
+    case PR_DECORATIONS:
+      return PATH_DECORATIONS;
+    case PR_TOOLS:
+      return PATH_TOOLS;
+    default:
+      console.log("ERROR finding correct page path for reference: " + pageReference);
   }
 }
 

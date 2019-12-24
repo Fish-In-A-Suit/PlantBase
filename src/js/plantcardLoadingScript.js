@@ -1,3 +1,4 @@
+/*Loads all of the plantcards*/
 $(document).ready(function(){
   loadTrendingPlantCard("#trendingPlant1", "assets/image/plants/papip.png", "Peperomia", 2, 30, 20);
   loadTrendingPlantCard("#trendingPlant2", "assets/image/plants/pilea_peperomioides.png", "Money plant", 4, 20, 10);
