@@ -6,6 +6,8 @@ out by observing the title of the webpage*/
 $(document).ready(function() {
   var title = refactorTitle(document.title);
 
+  var footerContainer = $(".footer-container");
+
   //load navigation bar
   var navbar = $(".navigationBar");
   navbar.load("/assets/core/NavigationBar.html", null, function(responsetxt, statusTxt, xhr) {
@@ -38,6 +40,9 @@ $(document).ready(function() {
       loadToolsPage();
       break;
   }
+
+  console.log("Loading footer");
+  footerContainer.load("/assets/core/Footer.html");
 })
 
 function refactorTitle(title) {
@@ -61,9 +66,15 @@ function loadIndoorPlantsPage() {
       console.log("Finished loading and running plantcardLoadingScript.js with a status of: " + textStatus);
     });
     $.getScript("js/additionalInfoLoader.js");
+    $.getScript("js/itemSearcher.js");
 
-    if(getItem(SS_HIGHLIGHT_TF)) {
-      setTimeout(highlightPlantCard, 4000);
+    //this captures the value... converts it to boolean
+    var highlightCondition = !!getItem(SS_HIGHLIGHT_TF);
+    console.log("[postPageLoader]: SS_HIGHLIGHT_TF = " + highlightCondition);
+    console.log("[postPageLoader]: type = " + typeof highlightCondition);
+    if(highlightCondition === true) {
+      console.log("highlighting...");
+      setTimeout(highlightPlantCard, 1000);
     }
   });
 }
@@ -85,15 +96,23 @@ function loadToolsPage() {
 
 function highlightPlantCard() {
   console.log("SS_HIGHLIGHT_TF: " + getItem(SS_HIGHLIGHT_TF));
-  if(getItem(SS_HIGHLIGHT_TF)) {
-    console.log("animating");
-    var prId = getItem(SS_HIGHLIGHT_PLANTCARD);
-    var pr = $("#"+prId);
-    scrollIntoView(pr);
-    animateBorder(pr);
-    setTimeout(function(){
-    pr.toggleClass("special");
-    }, 4000); //quit after 4s
-    saveItem(SS_HIGHLIGHT_TF, false);
+  console.log("animating: " + getItem(SS_HIGHLIGHT_PLANTCARD));
+  var prId = getItem(SS_HIGHLIGHT_PLANTCARD);
+
+  console.log("prId = " + prId);
+  if(prId.localeCompare("")==0) {
+    console.log("prId not defined. Quitting highlightPlantCard function");
+    return;
+  } else {
+    console.log("continuing");
   }
+
+  var pr = $("#"+prId);
+
+  scrollIntoView(pr);
+  animateBorder(pr);
+  setTimeout(function(){
+  pr.toggleClass("special");
+  }, 4000); //quit after 4s
+  saveItem(SS_HIGHLIGHT_TF, false);
 }

@@ -10,17 +10,19 @@ $(document).ready(function() {
   var jumbotronContainer = $(".jumbotronContainer");
   var content = $(".content");
   var additionalInfo = $(".additionalInfo");
+  var footerContainer = $(".footer-container");
 
   home.on('click', function(){
-    console.log("Home clicked");
+    console.log("[pageLoader]: Home clicked");
     //loadJumbotron();
 
     //loadhomepagelocation
-    window.location.pathname = "/MainPage.html"
+    //window.location.pathname = "/MainPage.html"
 
     jumbotronContainer.load("/assets/core/NavigationBarJumbotron.html");
-    content.load("/assets/core/HomePageContent.html");
+    //content.load("/assets/core/HomePageContent.html");
     document.title = TITLE_HOMEPAGE;
+    window.location.pathname="/MainPage.html";
   })
 
   indoor_plants.on('click', function() {

@@ -1,0 +1,142 @@
+@font-face{
+  src: url(/fonts/Comfortaa-Bold.ttf);
+  font-family: comfortaa_bold;
+}
+
+@font-face{
+  src: url("/fonts/Linotte/Linotte Light.otf");
+  font-family: linotte_light;
+}
+
+@font-face{
+  src: url("/fonts/Comic/comic.ttf");
+  font-family: comic_sans_ms;
+}
+
+@font-face{
+  src: url("/fonts/Comic/comic_extrabold.ttf");
+  font-family: comic_extrabold;
+}
+
+footer p {
+  color: #999;
+  line-height: 25px;
+}
+
+footer h2,h3{
+  color: #fff;
+}
+
+footer h2{
+  font-size: 18px;
+}
+
+.footer-container {
+  position: relative;
+  width: 100%;
+
+  background: #111;
+  padding: 40px 0;
+}
+
+.segment{
+  margin-top: 24px;
+}
+
+.segment-one h3{
+  font-family: comfortaa_bold;
+  color: #fff;
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+
+.segment-two h2{
+  color: #fff;
+  font-family: comfortaa_bold;
+  text-transform: uppercase;
+}
+
+.segment-two h2:before{
+  content: "|";
+  color: #c65039;
+  padding-right: 10px;
+}
+
+.segment-two ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.segment-two ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  line-height: 40px;
+}
+
+.segment-two ul li a {
+  color: #999;
+  text-decoration: none;
+}
+
+.segment-three h2 {
+  color: #fff;
+  font-family: comfortaa_bold;
+  text-transform: uppercase;
+}
+
+.segment-three h2:before{
+  content: "|";
+  color: #c65039;
+  padding-right: 10px;
+}
+
+.segment-three a i {
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 12px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram{
+  background: #125589;
+  color:white;
+}
+
+.segment-four h2{
+  color: #fff;
+  font-family: comfortaa_bold;
+  text-transform: uppercase;
+}
+
+.segment-four h2:before{
+  content: "|";
+  color: #c65039;
+  padding-right: 10px;
+}

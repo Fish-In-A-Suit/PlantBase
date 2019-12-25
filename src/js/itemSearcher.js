@@ -32,7 +32,9 @@ function highlight(searchResultBundle) {
     saveItem(SS_HIGHLIGHT_PLANTCARD, contentDivId);
 
     //load correct page
-    window.location.pathname= findCorrectPagePath(searchResultBundle[1]);
+    var path = findCorrectPagePath(searchResultBundle[1]);
+    console.log("New page path: " + path);
+    window.location.pathname= path;
   } else {
     saveItem(SS_HIGHLIGHT_TF, false); //highlighting while loading another page not neccessary
     scrollIntoView(contentDiv);
