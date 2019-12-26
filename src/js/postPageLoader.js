@@ -4,6 +4,8 @@ in the document ready function, different actions are taken based on which websi
 out by observing the title of the webpage*/
 
 $(document).ready(function() {
+  console.log("Document is ready");
+
   var title = refactorTitle(document.title);
 
   var footerContainer = $(".footer-container");
@@ -25,6 +27,7 @@ $(document).ready(function() {
       break;
     case "IndoorPlants":
       console.log("ON IP");
+      debugger;
       loadIndoorPlantsPage();
       break;
     case "OutdoorPlants":
@@ -69,10 +72,8 @@ function loadIndoorPlantsPage() {
     $.getScript("js/itemSearcher.js");
 
     //this captures the value... converts it to boolean
-    var highlightCondition = !!getItem(SS_HIGHLIGHT_TF);
-    console.log("[postPageLoader]: SS_HIGHLIGHT_TF = " + highlightCondition);
-    console.log("[postPageLoader]: type = " + typeof highlightCondition);
-    if(highlightCondition === true) {
+    var cond = "true";
+    if(getItem(SS_HIGHLIGHT_TF).localeCompare(cond) == 0) {
       console.log("highlighting...");
       setTimeout(highlightPlantCard, 1000);
     }
@@ -96,6 +97,13 @@ function loadToolsPage() {
 
 function highlightPlantCard() {
   console.log("SS_HIGHLIGHT_TF: " + getItem(SS_HIGHLIGHT_TF));
+
+  var cond = "false";
+  if(getItem(SS_HIGHLIGHT_TF).localeCompare(cond) == 0) {
+    console.log("STOPPING HIGHLIGHTING");
+    return;
+  }
+
   console.log("animating: " + getItem(SS_HIGHLIGHT_PLANTCARD));
   var prId = getItem(SS_HIGHLIGHT_PLANTCARD);
 

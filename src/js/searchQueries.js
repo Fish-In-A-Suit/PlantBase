@@ -24,7 +24,7 @@ var aloeveraOtherNames = ["ALOE", "CHINESE ALOE", "INDIAN ALOE", "TRUE ALOE", "B
 var aloeveraSQ = [aloeveraReference, aloeveraDisplayName, aloeveraOtherNames, PR_INDOOR_PLANTS];
 
 var snakeplantReference = "Snake_plant";
-var snakeplantDisplayName = "SNAKE PLANT";
+var snakeplantDisplayName = "SNAKE";
 var snakeplantOtherNames = ["VIPER'S BOWSTRING HEMP", "VIPERS BOWSTRING HEMP", "BOWSTRING HEMP", "SAINT GEORGE'S SWORD", "SAINT GEORGES SWORD", "GEORGES SWORD", "GEORGE'S SWORD", "MOTHER-IN-LAW'S TONGUE", "MOTHER-IN-LAWS TONGUE", "MOTHERS TONGUE", "MOTHER IN LAW'S TONGUE", "MOTHER IN LAWS TONGUE", "SANSEVIERIA TRIFASCIATA"];
 var snakeplantSQ = [snakeplantReference, snakeplantDisplayName, snakeplantOtherNames, PR_INDOOR_PLANTS];
 
@@ -38,4 +38,29 @@ var scheffleraDisplayName = "SCHEFFLERA";
 var scheffleraOtherNames=["DWARF UMBRELLA TREE", "SCHEFFLERA ARBORICOLA"];
 var scheffleraSQ = [scheffleraReference, scheffleraDisplayName, scheffleraOtherNames, PR_INDOOR_PLANTS];
 
-var allSearchQueries = [peperomiaSQ, moneyplantSQ, zzplantSQ, aloeveraSQ, snakeplantSQ, crownofthornsSQ, scheffleraSQ];
+var plilyReference = "Peace_lily";
+var plilyDisplayName="PEACE LILY";
+var plilyOtherNames=["SPATHIPHYLLUM WALLISII", "WHITE SAILS", "SPATHE FLOWER"];
+var plilySQ=[plilyReference, plilyDisplayName, plilyOtherNames, PR_INDOOR_PLANTS];
+
+var spiderplantReference = "Spider_plant";
+var spiderplantDisplayName="SPIDER";
+var spiderplantOtherNames=["CHLOROPHYTUM COMOSUM", "AIRPLANE", "ST. BERNARD'S LILY", "ST BERNARDS LILY", "ST BERNARD'S LILY", "SPIDER IVY", "RIBBON", "HEN AND CHICKENS"];
+var spiderPlantSQ = [spiderplantReference, spiderplantDisplayName, spiderplantOtherNames, PR_INDOOR_PLANTS];
+
+var jadeplantReference = "Jade_plant";
+var jadeplantDisplayName = "JADE";
+var jadeplantOtherNames = ["CRASSULA OVATA", "LUCKY", "MONEY TREE"];
+var jadeplantSQ = [jadeplantReference, jadeplantDisplayName, jadeplantOtherNames, PR_INDOOR_PLANTS];
+
+var fiddlefigReference = "Fiddle_leaf_fig";
+var fiddlefigDisplayName="FIDDLE LEAF FIG";
+var fiddlefigOtherNames=["FICUS LYRATA"];
+var fiddlefigSQ = [fiddlefigReference, fiddlefigDisplayName, fiddlefigOtherNames, PR_INDOOR_PLANTS];
+
+var begoniaReference = "Begonia";
+var begoniaDisplayName = "BEGONIA";
+var begoniaOtherNames = [];
+var begoniaSQ = [begoniaReference, begoniaDisplayName, begoniaOtherNames, PR_INDOOR_PLANTS];
+
+var allSearchQueries = [peperomiaSQ, moneyplantSQ, zzplantSQ, aloeveraSQ, snakeplantSQ, crownofthornsSQ, scheffleraSQ, plilySQ, spiderPlantSQ, jadeplantSQ, fiddlefigSQ, begoniaSQ];
