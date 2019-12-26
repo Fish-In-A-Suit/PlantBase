@@ -22,14 +22,14 @@ $(document).ready(function() {
     jumbotronContainer.load("/assets/core/NavigationBarJumbotron.html");
     //content.load("/assets/core/HomePageContent.html");
     document.title = TITLE_HOMEPAGE;
-    window.location.pathname="/MainPage.html";
+    window.location.href="/MainPage.html";
   })
 
   indoor_plants.on('click', function() {
     console.log("Indoor plants clicked");
 
     //load indoor plants location
-    window.location.pathname="/IndoorPlants.html"
+    window.location.href="/IndoorPlants.html"
 
   })
 
@@ -37,7 +37,7 @@ $(document).ready(function() {
     console.log("Outdoor plants clicked");
 
     //load outdoor plants location
-    window.location.pathname="/OutdoorPlants.html";
+    window.location.href="/OutdoorPlants.html";
 
     jumbotronContainer.empty();
     //document.title = TITLE_OUTDOOR_PLANTS;
@@ -47,7 +47,7 @@ $(document).ready(function() {
     console.log("Decorations clicked");
 
     //load decorations location
-    window.location.pathname="/Decorations.html";
+    window.location.href="/Decorations.html";
 
     jumbotronContainer.empty();
     //document.title = TITLE_DECORATIONS;
@@ -57,7 +57,7 @@ $(document).ready(function() {
     console.log("Tools clicked");
 
     //load tools location
-    window.location.pathname="/Tools.html";
+    window.location.href="/Tools.html";
 
     jumbotronContainer.empty();
     //document.title = TITLE_TOOLS;

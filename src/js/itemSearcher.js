@@ -51,11 +51,6 @@ function highlight(searchResultBundle) {
     setTimeout(function(){
     contentDiv.toggleClass("special");
     }, 4000); //quit after 4s
-
-    //check for Navigation Timing API support
-    if(window.performance) {
-      console.log("")
-    }
     debugger;
   }
 }
