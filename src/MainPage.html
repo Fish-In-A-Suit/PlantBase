@@ -15,50 +15,9 @@
 
     <body>
       <!-- Responsible for loading up the navigation bar -->
-      <div class="navigation bar">
-          <!-- Navigation bar -->
-          <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">PlantBase</a>
+      <div class="navigationBar">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto"> <!-- if you change this to ml-auto, all elements will jump to the left-->
-                    <li class="nav-item">
-                        <a class="nav-link home" href="#">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">Plants</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item indoor_plants" href="#">Indoor plants</a>
-                            <a class="dropdown-item outdoor_plants" href="#">Outdoor plants</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link decorations" href="#">Decorations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link tools" href="#">Tools</a>
-                    </li>
-                </ul>
-
-                <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchField">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submitButton">Search</button>
-                </form>
-            </div>
-          </nav>
-
-          <!-- Jumbotron -->
-          <div class="jumbotronContainer">
-              <div class="jumbotron">
-                <h1 class="display-4">Every plantlover's delight.</h1>
-                <p class="loead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-              </div>
-          </div>
-    </div>
+      </div>
 
       <div class="row no-gutters"> <!-- No gutters remove padding between columns, which is important for the secondary navigation bar-->
           <div class="col-12 content">
@@ -143,9 +102,11 @@
       <script src="js/storageAccess.js"></script>
       <script src="js/globalVariables.js"></script>
       <script src="js/utilities.js"></script>
+      <script src="js/navigationBarLoader.js"></script>
       <script src="js/searchQueries.js"></script>
       <script src="js/additionalInfoLoader.js"></script>
       <script src="/js/pageLoader.js"></script>
+      <script src="js/postPageLoader.js"></script>
       <script src="js/plantcardLoadingScript.js"></script>
       <script src="js/nextPlantInfoLoader.js"></script>
       <script src="js/itemSearcher.js"></script>

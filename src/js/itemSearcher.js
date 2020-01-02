@@ -10,7 +10,6 @@ $(document).ready(function() {
     console.log("searchText = " + searchTextUppercase);
 
     //new method: set state and then read from postPageLoader
-debugger;
     highlight(searchForItem(searchTextUppercase));
   })
 })
@@ -36,12 +35,18 @@ function highlight(searchResultBundle) {
     //load correct page
     var newPagePath = findCorrectPagePath(searchResultBundle[1]);
     console.log("New page path = " + newPagePath);
-    debugger;
-    window.location.pathname= newPagePath;
+
+    //var newPageUrl = findCorrectPageUrl(searchResultBundle[1]);
+    //console.log("New page url: " + newPageUrl);
+
+    //window.location.pathname=newPagePath;
+    window.location.pathname=newPagePath;
+    //window.location.href = newPageUrl;
+    //window.location.assign("https://www.w3schools.com");
+    //$("body").load(newPagePath);
   } else {
     //saveItem(SS_HIGHLIGHT_TF, true);
     //saveItem(SS_HIGHLIGHT_PLANTCARD, contentDivId);
-    debugger;
     saveItem(SS_HIGHLIGHT_TF, false); //this may be erroneous
 
     scrollIntoView(contentDiv);
@@ -80,6 +85,23 @@ function findCorrectPagePath(pageReference) {
       return PATH_DECORATIONS;
     case PR_TOOLS:
       return PATH_TOOLS;
+    default:
+      console.log("ERROR finding correct page path for reference: " + pageReference);
+  }
+}
+
+function findCorrectPageUrl(pageReference) {
+  switch(pageReference) {
+    case PR_HOMEPAGE:
+      return URL_HOMEPAGE;
+    case PR_INDOOR_PLANTS:
+      return URL_INDOOR_PLANTS;
+    case PR_OUTDOOR_PLANTS:
+      return URL_OUTDOOR_PLANTS;
+    case PR_DECORATIONS:
+      return URL_DECORATIONS;
+    case PR_TOOLS:
+      return URL_TOOLS;
     default:
       console.log("ERROR finding correct page path for reference: " + pageReference);
   }

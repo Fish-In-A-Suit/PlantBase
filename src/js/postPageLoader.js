@@ -5,7 +5,6 @@ out by observing the title of the webpage*/
 
 $(document).ready(function() {
   var title = refactorTitle(document.title);
-  debugger;
 
   //load navigation bar
   var navbar = $(".navigationBar");
@@ -22,6 +21,7 @@ $(document).ready(function() {
 
   switch(title) {
     case "Home":
+      console.log("ON H");
       break;
     case "IndoorPlants":
       console.log("ON IP");
@@ -56,7 +56,6 @@ function clearJumbotron() {
 function loadIndoorPlantsPage() {
   //load content
   var content = $(".content");
-  debugger;
   content.load("/assets/core/IndoorPlantsContent.html", null, function(responsetxt, statusTxt, xhr) {
     //this calls the script only after the indoor plants are done loading
     console.log("Content finished loading!");
@@ -64,10 +63,9 @@ function loadIndoorPlantsPage() {
       console.log("Finished loading and running plantcardLoadingScript.js with a status of: " + textStatus);
 
       console.log("SS_HIGHLIGHT_TF: " + getItem(SS_HIGHLIGHT_TF));
-      debugger;
       var cond = "true";
       if(cond.localeCompare(getItem(SS_HIGHLIGHT_TF)) == 0) {
-        setTimeout(highlightPlantCard, 4000);
+        setTimeout(highlightPlantCard, 300);
       }
     });
     $.getScript("js/additionalInfoLoader.js");
