@@ -40,7 +40,7 @@ function highlight(searchResultBundle) {
     var path = findCorrectPagePath(searchResultBundle[1]);
     console.log("New page path: " + path);
     debugger;
-    window.location.href= path;
+    window.location.path= path;
   } else {
     console.log("Element to be highlighted is on the same page!");
     saveItem(SS_HIGHLIGHT_TF, false); //highlighting while loading another page not neccessary

@@ -5,17 +5,18 @@ out by observing the title of the webpage*/
 
 $(document).ready(function() {
   console.log("Document is ready");
+  debugger;
 
   var title = refactorTitle(document.title);
 
   var footerContainer = $(".footer-container");
-
+  debugger;
   //load navigation bar
   var navbar = $(".navigationBar");
   navbar.load("/assets/core/NavigationBar.html", null, function(responsetxt, statusTxt, xhr) {
     console.log("Finished loading navigation bar!");
     $.getScript("js/pageLoader.js"); //this enables the navigation bar to work!
-
+    debugger;
     //empty jumbotron
     if(title!=="Home") {
       clearJumbotron();
