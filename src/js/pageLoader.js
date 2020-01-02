@@ -10,34 +10,39 @@ $(document).ready(function() {
   var jumbotronContainer = $(".jumbotronContainer");
   var content = $(".content");
   var additionalInfo = $(".additionalInfo");
-  var footerContainer = $(".footer-container");
 
   home.on('click', function(){
-    console.log("[pageLoader]: Home clicked");
+    console.log("Home clicked");
+
+    //saveItem(SS_HIGHLIGHT_TF, false);
+
     //loadJumbotron();
 
     //loadhomepagelocation
-    //window.location.pathname = "/MainPage.html"
+    window.location.pathname = "/MainPage.html"
 
     jumbotronContainer.load("/assets/core/NavigationBarJumbotron.html");
-    //content.load("/assets/core/HomePageContent.html");
+    content.load("/assets/core/HomePageContent.html");
     document.title = TITLE_HOMEPAGE;
-    window.location.href="/MainPage.html";
   })
 
   indoor_plants.on('click', function() {
     console.log("Indoor plants clicked");
 
+    saveItem(SS_HIGHLIGHT_TF, false);
+
     //load indoor plants location
-    window.location.href="/IndoorPlants.html"
+    window.location.pathname="/IndoorPlants.html";
 
   })
 
   outdoor_plants.on('click', function(){
     console.log("Outdoor plants clicked");
 
+    //saveItem(SS_HIGHLIGHT_TF, false);
+
     //load outdoor plants location
-    window.location.href="/OutdoorPlants.html";
+    window.location.pathname="/OutdoorPlants.html";
 
     jumbotronContainer.empty();
     //document.title = TITLE_OUTDOOR_PLANTS;
@@ -46,8 +51,10 @@ $(document).ready(function() {
   decorations.on('click', function() {
     console.log("Decorations clicked");
 
+    //saveItem(SS_HIGHLIGHT_TF, false);
+
     //load decorations location
-    window.location.href="/Decorations.html";
+    window.location.pathname="/Decorations.html";
 
     jumbotronContainer.empty();
     //document.title = TITLE_DECORATIONS;
@@ -56,8 +63,10 @@ $(document).ready(function() {
   tools.on('click', function() {
     console.log("Tools clicked");
 
+    //saveItem(SS_HIGHLIGHT_TF, false);
+
     //load tools location
-    window.location.href="/Tools.html";
+    window.location.pathname="/Tools.html";
 
     jumbotronContainer.empty();
     //document.title = TITLE_TOOLS;
@@ -172,3 +181,4 @@ function loadPageContentHighlighted(contentInfo, jumbotronInfo, shouldLoadJumbot
 
   document.title = getPageTitle(pageTitle);
 }
+

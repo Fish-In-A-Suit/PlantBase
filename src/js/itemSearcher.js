@@ -8,8 +8,8 @@ $(document).ready(function() {
     var searchText = searchField.val(); /*this gets the value of the searchField using val()*/
     var searchTextUppercase = searchText.toUpperCase(); //so that it's case insensitive
     console.log("searchText = " + searchTextUppercase);
-    debugger;
 
+    //new method: set state and then read from postPageLoader
     highlight(searchForItem(searchTextUppercase));
   })
 })
@@ -22,36 +22,39 @@ function highlight(searchResultBundle) {
   var contentDivId = "contentDiv_" + searchResultBundle[0]; //the content div (background) of the specified searchResult
   var contentDiv = $("#" + contentDivId);
 
-  console.log("  - should highlight: " + getItem(SS_HIGHLIGHT_TF));
-  console.log("  - highlight div: " + getItem(SS_HIGHLIGHT_PLANTCARD));
-
   console.log("Highlight test: title of this page is: " + document.title);
   if(checkPageCorrectness(searchResultBundle[1]) == false) {
     //DEPRECATED METHOD
     //if not on correct page, load the correct page from searchResultBundle[1]
     //loadPageWithHighlighDiv(searchResultBundle[1], contentDivId); //this method in pageLoader.js
-    console.log("NOT ON CORRECT PAGE");
-    debugger;
+
     //new method: set state and then read from postPageLoader
     saveItem(SS_HIGHLIGHT_TF, true);
     saveItem(SS_HIGHLIGHT_PLANTCARD, contentDivId);
 
     //load correct page
-    var path = findCorrectPagePath(searchResultBundle[1]);
-    console.log("New page path: " + path);
-    debugger;
-    window.location.path= path;
+    var newPagePath = findCorrectPagePath(searchResultBundle[1]);
+    console.log("New page path = " + newPagePath);
+
+    //var newPageUrl = findCorrectPageUrl(searchResultBundle[1]);
+    //console.log("New page url: " + newPageUrl);
+
+    //window.location.pathname=newPagePath;
+    window.location.pathname=newPagePath;
+    //window.location.href = newPageUrl;
+    //window.location.assign("https://www.w3schools.com");
+    //$("body").load(newPagePath);
   } else {
-    console.log("Element to be highlighted is on the same page!");
-    saveItem(SS_HIGHLIGHT_TF, false); //highlighting while loading another page not neccessary
-    saveItem(SS_HIGHLIGHT_PLANTCARD, "");
+    //saveItem(SS_HIGHLIGHT_TF, true);
+    //saveItem(SS_HIGHLIGHT_PLANTCARD, contentDivId);
+    saveItem(SS_HIGHLIGHT_TF, false); //this may be erroneous
+
     scrollIntoView(contentDiv);
     animateBorder(contentDiv);
-    //debugger;
     setTimeout(function(){
     contentDiv.toggleClass("special");
     }, 4000); //quit after 4s
-    debugger;
+
   }
 }
 
@@ -82,6 +85,23 @@ function findCorrectPagePath(pageReference) {
       return PATH_DECORATIONS;
     case PR_TOOLS:
       return PATH_TOOLS;
+    default:
+      console.log("ERROR finding correct page path for reference: " + pageReference);
+  }
+}
+
+function findCorrectPageUrl(pageReference) {
+  switch(pageReference) {
+    case PR_HOMEPAGE:
+      return URL_HOMEPAGE;
+    case PR_INDOOR_PLANTS:
+      return URL_INDOOR_PLANTS;
+    case PR_OUTDOOR_PLANTS:
+      return URL_OUTDOOR_PLANTS;
+    case PR_DECORATIONS:
+      return URL_DECORATIONS;
+    case PR_TOOLS:
+      return URL_TOOLS;
     default:
       console.log("ERROR finding correct page path for reference: " + pageReference);
   }
@@ -175,12 +195,12 @@ function approximateSearch(searchText) {
   var matchSuccessThreshold = 0.90;
 
   for(i = 0; i<allSearchQueries.length; i++) {
+    console.log("Testing display names");
     var searchQuery = allSearchQueries[i];
     var plantReference = searchQuery[0];
     var displayName = searchQuery[1];
     var otherNames = searchQuery[2];
     var pageReference = searchQuery[3];
-    console.log("Testing display names for plant: " + plantReference);
 
     //test display name
     for(k = 0; k<segments.length; k++) {
@@ -234,3 +254,4 @@ function splitIntoSegmentsByThree(str) {
   console.log("splitIntoSegments: " + result);
   return result;
 }
+

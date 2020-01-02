@@ -4,19 +4,15 @@ in the document ready function, different actions are taken based on which websi
 out by observing the title of the webpage*/
 
 $(document).ready(function() {
-  console.log("Document is ready");
-  debugger;
-
   var title = refactorTitle(document.title);
 
-  var footerContainer = $(".footer-container");
-  debugger;
   //load navigation bar
   var navbar = $(".navigationBar");
   navbar.load("/assets/core/NavigationBar.html", null, function(responsetxt, statusTxt, xhr) {
     console.log("Finished loading navigation bar!");
     $.getScript("js/pageLoader.js"); //this enables the navigation bar to work!
-    debugger;
+    $.getScript("js/itemSearcher.js");
+
     //empty jumbotron
     if(title!=="Home") {
       clearJumbotron();
@@ -25,10 +21,10 @@ $(document).ready(function() {
 
   switch(title) {
     case "Home":
+      console.log("ON H");
       break;
     case "IndoorPlants":
       console.log("ON IP");
-      debugger;
       loadIndoorPlantsPage();
       break;
     case "OutdoorPlants":
@@ -44,9 +40,6 @@ $(document).ready(function() {
       loadToolsPage();
       break;
   }
-
-  console.log("Loading footer");
-  footerContainer.load("/assets/core/Footer.html");
 })
 
 function refactorTitle(title) {
@@ -68,16 +61,16 @@ function loadIndoorPlantsPage() {
     console.log("Content finished loading!");
     $.getScript("js/plantcardLoadingScript.js").done(function(script, textStatus) {
       console.log("Finished loading and running plantcardLoadingScript.js with a status of: " + textStatus);
+
+      console.log("SS_HIGHLIGHT_TF: " + getItem(SS_HIGHLIGHT_TF));
+      var cond = "true";
+      if(cond.localeCompare(getItem(SS_HIGHLIGHT_TF)) == 0) {
+        setTimeout(highlightPlantCard, 300);
+      }
     });
     $.getScript("js/additionalInfoLoader.js");
-    $.getScript("js/itemSearcher.js");
 
-    //this captures the value... converts it to boolean
-    var cond = "true";
-    if(getItem(SS_HIGHLIGHT_TF).localeCompare(cond) == 0) {
-      console.log("highlighting...");
-      setTimeout(highlightPlantCard, 1000);
-    }
+
   });
 }
 
@@ -98,30 +91,15 @@ function loadToolsPage() {
 
 function highlightPlantCard() {
   console.log("SS_HIGHLIGHT_TF: " + getItem(SS_HIGHLIGHT_TF));
-
-  var cond = "false";
-  if(getItem(SS_HIGHLIGHT_TF).localeCompare(cond) == 0) {
-    console.log("STOPPING HIGHLIGHTING");
-    return;
+  if(getItem(SS_HIGHLIGHT_TF)) {
+    console.log("animating");
+    var prId = getItem(SS_HIGHLIGHT_PLANTCARD);
+    var pr = $("#"+prId);
+    scrollIntoView(pr);
+    animateBorder(pr);
+    setTimeout(function(){
+    pr.toggleClass("special");
+    }, 4000); //quit after 4s
+    saveItem(SS_HIGHLIGHT_TF, false);
   }
-
-  console.log("animating: " + getItem(SS_HIGHLIGHT_PLANTCARD));
-  var prId = getItem(SS_HIGHLIGHT_PLANTCARD);
-
-  console.log("prId = " + prId);
-  if(prId.localeCompare("")==0) {
-    console.log("prId not defined. Quitting highlightPlantCard function");
-    return;
-  } else {
-    console.log("continuing");
-  }
-
-  var pr = $("#"+prId);
-
-  scrollIntoView(pr);
-  animateBorder(pr);
-  setTimeout(function(){
-  pr.toggleClass("special");
-  }, 4000); //quit after 4s
-  saveItem(SS_HIGHLIGHT_TF, false);
 }

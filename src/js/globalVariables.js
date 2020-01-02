@@ -19,6 +19,12 @@ var PATH_OUTDOOR_PLANTS = "/OutdoorPlants.html";
 var PATH_DECORATIONS = "/Decorations.html";
 var PATH_TOOLS = "/Tools.html";
 
+//URLs
+var URL_HOMEPAGE = "http://localhost:3000/MainPage.html";
+var URL_INDOOR_PLANTS = "http://localhost:3000/IndoorPlants.html?";
+var URL_OUTDOOR_PLANTS = "http://localhost:3000/OutdoorPlants.html";
+var URL_DECORATIONS = "http://localhost:3000/Decorations.html";
+var URL_TOOLS = "http://localhost:3000/Tools.html";
 
 //session storage labels
 var SS_HIGHLIGHT_PLANTCARD = "ss_h_p"; //the plantcard to be highlighted
