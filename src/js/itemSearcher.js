@@ -9,6 +9,8 @@ $(document).ready(function() {
     var searchTextUppercase = searchText.toUpperCase(); //so that it's case insensitive
     console.log("searchText = " + searchTextUppercase);
 
+    //new method: set state and then read from postPageLoader
+debugger;
     highlight(searchForItem(searchTextUppercase));
   })
 })
@@ -32,14 +34,22 @@ function highlight(searchResultBundle) {
     saveItem(SS_HIGHLIGHT_PLANTCARD, contentDivId);
 
     //load correct page
-    window.location.pathname= findCorrectPagePath(searchResultBundle[1]);
+    var newPagePath = findCorrectPagePath(searchResultBundle[1]);
+    console.log("New page path = " + newPagePath);
+    debugger;
+    window.location.pathname= newPagePath;
   } else {
-    saveItem(SS_HIGHLIGHT_TF, false); //highlighting while loading another page not neccessary
+    //saveItem(SS_HIGHLIGHT_TF, true);
+    //saveItem(SS_HIGHLIGHT_PLANTCARD, contentDivId);
+    debugger;
+    saveItem(SS_HIGHLIGHT_TF, false); //this may be erroneous
+
     scrollIntoView(contentDiv);
     animateBorder(contentDiv);
     setTimeout(function(){
     contentDiv.toggleClass("special");
     }, 4000); //quit after 4s
+
   }
 }
 

@@ -5,12 +5,14 @@ out by observing the title of the webpage*/
 
 $(document).ready(function() {
   var title = refactorTitle(document.title);
+  debugger;
 
   //load navigation bar
   var navbar = $(".navigationBar");
   navbar.load("/assets/core/NavigationBar.html", null, function(responsetxt, statusTxt, xhr) {
     console.log("Finished loading navigation bar!");
     $.getScript("js/pageLoader.js"); //this enables the navigation bar to work!
+    $.getScript("js/itemSearcher.js");
 
     //empty jumbotron
     if(title!=="Home") {
@@ -54,17 +56,23 @@ function clearJumbotron() {
 function loadIndoorPlantsPage() {
   //load content
   var content = $(".content");
+  debugger;
   content.load("/assets/core/IndoorPlantsContent.html", null, function(responsetxt, statusTxt, xhr) {
     //this calls the script only after the indoor plants are done loading
     console.log("Content finished loading!");
     $.getScript("js/plantcardLoadingScript.js").done(function(script, textStatus) {
       console.log("Finished loading and running plantcardLoadingScript.js with a status of: " + textStatus);
+
+      console.log("SS_HIGHLIGHT_TF: " + getItem(SS_HIGHLIGHT_TF));
+      debugger;
+      var cond = "true";
+      if(cond.localeCompare(getItem(SS_HIGHLIGHT_TF)) == 0) {
+        setTimeout(highlightPlantCard, 4000);
+      }
     });
     $.getScript("js/additionalInfoLoader.js");
 
-    if(getItem(SS_HIGHLIGHT_TF)) {
-      setTimeout(highlightPlantCard, 4000);
-    }
+
   });
 }
 

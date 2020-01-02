@@ -49,6 +49,7 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
     var allSpanIds = [newSpan1Id, newSpan2Id, newSpan3Id, newSpan4Id];
     */
 
+    /*
     console.log("" + imgSrcContainer.attr("id"));
     console.log("" + plantNameContainer.attr("id"));
     console.log("" + waterDropletsContainer.attr("id"));
@@ -65,7 +66,7 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
     console.log(newAvgHeightContainerId);
 
     console.log("-------");
-
+*/
     contentDiv.attr("id", reformattedContentDivId);
     //loaderDiv.attr("id", newLoaderDivId);
     imgSrcContainer.attr("id", newImgSrcContainerId);
@@ -81,11 +82,13 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
     span4.attr("id", newSpan4Id);
     */
 
+/*
     console.log("" + imgSrcContainer.attr("id"));
     console.log("" + plantNameContainer.attr("id"));
     console.log("" + waterDropletsContainer.attr("id"));
     console.log("" + priceContainer.attr("id"));
     console.log("" + avgHeightContainer.attr("id"));
+*/
 
     var updatedContentDiv = srcDiv.find("#" + newContentDivId);
     var updatedImgSrcContainer = srcDiv.find("#"+newImgSrcContainerId);
@@ -111,7 +114,7 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
     var button = srcDiv.find("#plantcard_information_button");
     var newButtonId = button.attr("id") + "_" + name;
     button.attr("id", newButtonId);
-    console.log("Updated button id: " + button.attr("id"));
+    //console.log("Updated button id: " + button.attr("id"));
 
     /*
     var buttonClickEventAsString = "loadAdditionalInfo(" + button.attr("id") + ");"
@@ -131,7 +134,7 @@ function loadRegularPlantCard(srcDivId, imgPath, rawName, waterLevel, price, hei
 }
 
 function addWaterDroplets(container, count) {
-  console.log("Adding " + count + " water droplets.");
+  //console.log("Adding " + count + " water droplets.");
   //just for testing, will delete this later anyways.. removes all current child elements
   container.empty();
 
@@ -164,7 +167,7 @@ function addWaterDroplets(container, count) {
 }
 
 function addWaterDroplet(container) {
-  console.log("Adding a water droplet");
+  //console.log("Adding a water droplet");
   /* Creation using js
   var imgView = document.createElement("IMG");
   imgView.setAttribute("src", "image/water_droplet.svg");
@@ -186,7 +189,7 @@ function addWaterDroplet(container) {
 
   imgView.appendTo(container);
 
-  console.log(imgView);
+  //console.log(imgView);
 }
 
 /*
@@ -212,7 +215,7 @@ function reformatContentDivId(newContentDivId) {
       resultArr.push(split[i]);
     }
 
-    console.log("array: " + resultArr);
+    //console.log("array: " + resultArr);
     for(j=0; j<resultArr.length; j++) {
       if(j==(resultArr.length-1)) {
         //end of array
@@ -236,6 +239,6 @@ function updateLoaderSpans() {
     var currentLoader = loaders(i);
     var correspondingSpans = loaders(i+1);
 
-    console.log("x:y = " + currentLoader.style.left + " " + currentLoader.style.top);
+    //console.log("x:y = " + currentLoader.style.left + " " + currentLoader.style.top);
   }
 }
