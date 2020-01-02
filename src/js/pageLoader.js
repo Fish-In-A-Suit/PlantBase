@@ -181,3 +181,4 @@ function loadPageContentHighlighted(contentInfo, jumbotronInfo, shouldLoadJumbot
 
   document.title = getPageTitle(pageTitle);
 }
+
