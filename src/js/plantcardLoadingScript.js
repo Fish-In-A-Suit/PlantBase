@@ -16,6 +16,15 @@ $(document).ready(function(){
   loadRegularPlantCard("#regularPlant8", "assets/image/plants/yucca.png", "Yucca plant", 1, 20, 40);
   loadRegularPlantCard("#regularPlant9", "assets/image/plants/bromeliad.png", "Bromeliad", 2, 20, 40);
   loadRegularPlantCard("#regularPlant10", "assets/image/plants/african_violets.png", "African violets", 3, 20, 30);
+  loadRegularPlantCard("#regularPlant11", "assets/image/plants/rubber_plant.png", "Rubber plant", 2, 20, 40);
+  loadRegularPlantCard("#regularPlant12", "assets/image/plants/dieffenbachia.png", "Dieffenbachia", 3, 20, 40);
+  loadRegularPlantCard("#regularPlant13", "assets/image/plants/devils_ivy.png", "Devil's ivy", 1, 20, 30);
+  loadRegularPlantCard("#regularPlant14", "assets/image/plants/calathea.png", "Calathea", 2, 20, 40);
+  loadRegularPlantCard("#regularPlant15", "assets/image/plants/asparagus_fern.png", "Asparagus fern", 1, 20, 40);
+  loadRegularPlantCard("#regularPlant16", "assets/image/plants/chinese_evergreen_1.png", "Aglaonema", 2, 20, 40);
+  loadRegularPlantCard("#regularPlant17", "assets/image/plants/ponytail_palm.png", "Ponytail palm", 1, 20, 40);
+  loadRegularPlantCard("#regularPlant18", "assets/image/plants/cast-iron_plant.png", "Cast-iron plant", 2, 20, 40);
+  loadRegularPlantCard("#regularPlant19", "assets/image/plants/dragon_tree.png", "Dragon tree", 1, 20, 50);
 });
 
 function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, price, height) {
@@ -204,8 +213,9 @@ function addWaterDroplet(container) {
 Adds underscores between whitespaces (if any) of a name so it can be used as an id for elements
 */
 function refactorNameToId(name) {
-  var result = name.split(".").join("_");
-  return result.split(" ").join("_");
+  var intermediate = name.split("'").join("_"); //eliminate apostrophes...js can't handle such names
+  var result = intermediate.split(".").join("_"); //eliminate dots
+  return result.split(" ").join("_"); //eliminate whitespace
 }
 
 /*
