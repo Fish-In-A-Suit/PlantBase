@@ -13,6 +13,9 @@ $(document).ready(function(){
   loadRegularPlantCard("#regularPlant5", "assets/image/plants/pilea_peperomioides.png", "Money plant", 4, 20, 10);
   loadRegularPlantCard("#regularPlant6", "assets/image/plants/fiddle_leaf_fig.png", "Fiddle leaf fig", 3, 20, 10);
   loadRegularPlantCard("#regularPlant7", "assets/image/plants/begonia.png", "Begonia", 3, 20, 40);
+  loadRegularPlantCard("#regularPlant8", "assets/image/plants/yucca.png", "Yucca plant", 1, 20, 40);
+  loadRegularPlantCard("#regularPlant9", "assets/image/plants/bromeliad.png", "Bromeliad", 2, 20, 40);
+  loadRegularPlantCard("#regularPlant10", "assets/image/plants/african_violets.png", "African violets", 3, 20, 30);
 });
 
 function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, price, height) {
