@@ -1,6 +1,6 @@
 /*This script provides functionality for the next button in the secondary navigationBar
   of additional plant info */
-var plantNames = ["Peperomia", "Money_plant", "ZZ_plant", "Aloe_vera", "Snake_plant", "Crown_of_thorns", "Schefflera"];
+var plantNames = ["Snake_plant", "Aloe_vera", "Peace_lily", "Spider_plant", "Jade_plant", "Peperomia", "Crown_of_thorns", "Schefflera", "ZZ_plant", "Money_plant", "Fiddle_leaf_fig", "Begonia", "Yucca_plant", "Bromeliad", "African_violets", "Rubber_plant", "Dieffenbachia", "Devils_ivy", "Calathea", "Asparagus_fern", "Aglaonema", "Ponytail_palm", "Cast-iron_plant", "Dragon_tree"];
 
 function loadNextPlantInfo() {
   console.log("loadNextPlantInfo: currentPlant = " + currentPlant);
