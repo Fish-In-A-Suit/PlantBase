@@ -92,6 +92,8 @@ function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, pr
     priceContainer.attr("id", newPriceContainerId);
     avgHeightContainer.attr("id", newAvgHeightContainerId);
 
+    console.log("pn_containerId = " + newPlantNameContainerId);
+
     /*
     span1.attr("id", newSpan1Id);
     span2.attr("id", newSpan2Id);

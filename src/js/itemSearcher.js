@@ -117,11 +117,15 @@ function searchForItem(searchText) {
     console.log("Exact search for query " + searchText + " unsuccessful. Starting approximate search");
     bundle = approximateSearch(searchText);
 
-    if(bundle.length == 0) {
-      console.log("There are no matches for search: " + searchText);
-      return [];
+    if(bundle != undefined) {
+      if(bundle.length == 0) {
+        console.log("There are no matches for search: " + searchText);
+        return [];
+      } else {
+        return bundle;
+      }
     } else {
-      return bundle;
+      console.log("ERROR: undefined bundle for search text: " + searchText);
     }
   } else {
     return bundle;
@@ -141,8 +145,10 @@ function exactSearch(searchText) {
 
     //console.log(i + ": inspecting " + displayName);
 
+    console.log("st = " + searchText);
+    console.log("dn = " + displayName);
     /*tests if the search text matches either the display name of the plant or any other common names*/
-    if(searchText === displayName) {
+    if(searchText === displayName || searchText === refactorDN(displayName) || displayName.includes(searchText)) {
       console.log("Successful match for " + searchText + "! (dp)");
       result.push(plantReference);
       result.push(pageReference);
@@ -195,18 +201,23 @@ function approximateSearch(searchText) {
   var matchSuccessThreshold = 0.90;
 
   for(i = 0; i<allSearchQueries.length; i++) {
-    console.log("Testing display names");
+    if(i == (allSearchQueries.length - 1)) {
+      console.log("Peforming last iteration.");
+    }
     var searchQuery = allSearchQueries[i];
     var plantReference = searchQuery[0];
     var displayName = searchQuery[1];
     var otherNames = searchQuery[2];
     var pageReference = searchQuery[3];
+    console.log("dn = " + displayName);
 
     //test display name
+    console.log("lsegments: " + segments.length);
     for(k = 0; k<segments.length; k++) {
+      console.log("'" + segments[k] + "'  -  " + "'" + displayName + "'");
       if(displayName.includes(segments[k])) {
         matches.push("match");
-      }
+      } 
     }
     console.log("matches = " + matches.length);
     var matchCoefficient = matches.length/segments.length;
@@ -253,5 +264,14 @@ function splitIntoSegmentsByThree(str) {
   var result = str.match(/.{1,3}/g);
   console.log("splitIntoSegments: " + result);
   return result;
+}
+
+/*refactors the specified display name to omit words like plants */
+function refactorDN(displayName) {
+  if(displayName.includes("plant")) {
+    var ref = displayName.replace("plant", "");
+    return ref;
+  }
+  return displayName;
 }
 

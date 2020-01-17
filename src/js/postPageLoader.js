@@ -12,6 +12,7 @@ $(document).ready(function() {
     console.log("Finished loading navigation bar!");
     $.getScript("js/pageLoader.js"); //this enables the navigation bar to work!
     $.getScript("js/itemSearcher.js");
+    $.getScript("js/enterSearch.js");
 
     //empty jumbotron
     if(title!=="Home") {
