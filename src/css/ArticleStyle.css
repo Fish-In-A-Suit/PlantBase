@@ -1,0 +1,66 @@
+/*this is the style that should be used by every article on the webpage*/
+
+@font-face{
+  src: url("/fonts/Comic/comic_extrabold.ttf");
+  font-family: comic_extrabold;
+}
+
+@font-face{
+    src: url("/fonts/Comic/comic.ttf");
+    font-family: comic_sans_ms;
+}
+
+@font-face{
+    src: url("/fonts/Linotte/Linotte Light.otf");
+    font-family: linotte_light;
+  }
+
+@font-face{
+    src: url(/fonts/Comfortaa-Bold.ttf);
+    font-family: comfortaa_bold;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-family: comic_sans_ms;
+    font-size: 26px;
+    clear: both;
+    padding-top: 8px;
+}
+
+h3 {
+    color: #000;
+    font-family: comfortaa_bold;
+    font-size: 20px;
+    clear: both;
+    padding-top: 8px;
+}
+
+p {
+    font-family: linotte_light;
+    font-size: 18px;
+}
+
+li {
+    font-family: linotte_light;
+    font-size: 18px;
+    text-align: left;
+}
+
+img {
+    margin-bottom: 12px;
+}
+
+.sideImg {
+    max-width: 400px;
+    max-height: 550px;
+}
+
+.listImage{
+    max-width: 300px;
+    max-height: 450px;
+}

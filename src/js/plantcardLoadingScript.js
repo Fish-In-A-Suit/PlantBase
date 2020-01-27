@@ -1,30 +1,30 @@
 /*Loads all of the plantcards*/
 $(document).ready(function(){
-  loadTrendingPlantCard("#trendingPlant1", "assets/image/plants/snake_plant.png", "Snake plant", 1, 15, 30);
-  loadTrendingPlantCard("#trendingPlant2", "assets/image/plants/aloe.png", "Aloe vera", 1, 15, 30);
-  loadTrendingPlantCard("#trendingPlant3", "assets/image/plants/peace_lily.png", "Peace lily", 3, 15,30);
-  loadTrendingPlantCard("#trendingPlant4", "assets/image/plants/spider_plant.png", "Spider plant", 3, 15, 30);
-  loadTrendingPlantCard("#trendingPlant5", "assets/image/plants/jade_plant.png", "Jade plant", 1, 15, 30);
+  loadTrendingPlantCard("#trendingPlant1", "assets/image/plants/snake_plant.png", "Snake plant", 1, 23, 30);
+  loadTrendingPlantCard("#trendingPlant2", "assets/image/plants/aloe.png", "Aloe vera", 1, 15, 45);
+  loadTrendingPlantCard("#trendingPlant3", "assets/image/plants/peace_lily.png", "Peace lily", 3, 12,60);
+  loadTrendingPlantCard("#trendingPlant4", "assets/image/plants/spider_plant.png", "Spider plant", 3, 18, 60);
+  loadTrendingPlantCard("#trendingPlant5", "assets/image/plants/jade_plant.png", "Jade plant", 1, 23, 76);
 
-  loadRegularPlantCard("#regularPlant1", "assets/image/plants/papip.png", "Peperomia", 2, 30, 20);
-  loadRegularPlantCard("#regularPlant2", "assets/image/plants/crown_of_thorns.png", "Crown of thorns", 3, 15, 30);
+  loadRegularPlantCard("#regularPlant1", "assets/image/plants/papip.png", "Peperomia", 2, 24, 30);
+  loadRegularPlantCard("#regularPlant2", "assets/image/plants/crown_of_thorns.png", "Crown of thorns", 3, 13, 20);
   loadRegularPlantCard("#regularPlant3", "assets/image/plants/schefflera.png", "Schefflera", 3, 15, 30);
-  loadRegularPlantCard("#regularPlant4", "assets/image/plants/zz_plant.png", "ZZ plant", 1, 30, 80);
-  loadRegularPlantCard("#regularPlant5", "assets/image/plants/pilea_peperomioides.png", "Money plant", 4, 20, 10);
-  loadRegularPlantCard("#regularPlant6", "assets/image/plants/fiddle_leaf_fig.png", "Fiddle leaf fig", 3, 20, 10);
+  loadRegularPlantCard("#regularPlant4", "assets/image/plants/zz_plant.png", "ZZ plant", 1, 17, 90);
+  loadRegularPlantCard("#regularPlant5", "assets/image/plants/pilea_peperomioides.png", "Money plant", 4, 20, 18);
+  loadRegularPlantCard("#regularPlant6", "assets/image/plants/fiddle_leaf_fig.png", "Fiddle leaf fig", 3, 20, 200);
   loadRegularPlantCard("#regularPlant7", "assets/image/plants/begonia.png", "Begonia", 3, 20, 40);
-  loadRegularPlantCard("#regularPlant8", "assets/image/plants/yucca.png", "Yucca plant", 1, 20, 40);
-  loadRegularPlantCard("#regularPlant9", "assets/image/plants/bromeliad.png", "Bromeliad", 2, 20, 40);
-  loadRegularPlantCard("#regularPlant10", "assets/image/plants/african_violets.png", "African violets", 3, 20, 30);
-  loadRegularPlantCard("#regularPlant11", "assets/image/plants/rubber_plant.png", "Rubber plant", 2, 20, 40);
-  loadRegularPlantCard("#regularPlant12", "assets/image/plants/dieffenbachia.png", "Dieffenbachia", 3, 20, 40);
-  loadRegularPlantCard("#regularPlant13", "assets/image/plants/devils_ivy.png", "Devil's ivy", 1, 20, 30);
+  loadRegularPlantCard("#regularPlant8", "assets/image/plants/yucca.png", "Yucca plant", 1, 20, 120);
+  loadRegularPlantCard("#regularPlant9", "assets/image/plants/bromeliad.png", "Bromeliad", 2, 20, 65);
+  loadRegularPlantCard("#regularPlant10", "assets/image/plants/african_violets.png", "African violets", 3, 20, 10);
+  loadRegularPlantCard("#regularPlant11", "assets/image/plants/rubber_plant.png", "Rubber plant", 2, 20, 213);
+  loadRegularPlantCard("#regularPlant12", "assets/image/plants/dieffenbachia.png", "Dieffenbachia", 3, 20, 120);
+  loadRegularPlantCard("#regularPlant13", "assets/image/plants/devils_ivy.png", "Devil's ivy", 1, 20, 150);
   loadRegularPlantCard("#regularPlant14", "assets/image/plants/calathea.png", "Calathea", 2, 20, 40);
-  loadRegularPlantCard("#regularPlant15", "assets/image/plants/asparagus_fern.png", "Asparagus fern", 1, 20, 40);
-  loadRegularPlantCard("#regularPlant16", "assets/image/plants/chinese_evergreen_1.png", "Aglaonema", 2, 20, 40);
-  loadRegularPlantCard("#regularPlant17", "assets/image/plants/ponytail_palm.png", "Ponytail palm", 1, 20, 40);
-  loadRegularPlantCard("#regularPlant18", "assets/image/plants/cast-iron_plant.png", "Cast-iron plant", 2, 20, 40);
-  loadRegularPlantCard("#regularPlant19", "assets/image/plants/dragon_tree.png", "Dragon tree", 1, 20, 50);
+  loadRegularPlantCard("#regularPlant15", "assets/image/plants/asparagus_fern.png", "Asparagus fern", 1, 20, 180);
+  loadRegularPlantCard("#regularPlant16", "assets/image/plants/chinese_evergreen_1.png", "Aglaonema", 2, 20, 50);
+  loadRegularPlantCard("#regularPlant17", "assets/image/plants/ponytail_palm.png", "Ponytail palm", 1, 20, 80);
+  loadRegularPlantCard("#regularPlant18", "assets/image/plants/cast-iron_plant.png", "Cast-iron plant", 2, 20, 45);
+  loadRegularPlantCard("#regularPlant19", "assets/image/plants/dragon_tree.png", "Dragon tree", 1, 20, 90);
 });
 
 function loadPlantCard(plantCardHTML, srcDivId, imgPath, rawName, waterLevel, price, height) {

@@ -84,9 +84,11 @@ function loadPage(pageReference) {
 
   switch(pageReference) {
     case "H":
+      console.log("[pageLoader.loadPage]: Loading home page");
       loadPageContent("/assets/core/HomePageContent.html", "/assets/core/NavigationBarJumbotron.html", true, TITLE_HOMEPAGE, null, false)
       break;
     case "IP":
+      console.log("[pageLoader.loadPage]: Loading IP page");
       //load indoor plants page
       loadPageContent("/assets/core/IndoorPlantsContent.html", null, false, PR_INDOOR_PLANTS, "js/plantcardLoadingScript.js", true);
       break;

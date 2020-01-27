@@ -71,3 +71,12 @@
 .form-control{
   border-radius: 4px;
 }
+
+.cover-photo-div{
+  width: 100%;
+}
+
+.article-cover-photo {
+  max-width: 50px;
+  max-height: 50px;
+}

@@ -6,13 +6,30 @@ out by observing the title of the webpage*/
 $(document).ready(function() {
   var title = refactorTitle(document.title);
 
+  //script titles
+  var ST_pageLoader = "js/pageLoader.js";
+  var ST_itemSearcher = "js/itemSearcher.js";
+  var ST_enterSearch = "js/enterSearch.js";
+
+  var ST_pageLoader_parent = "../js/pageLoader.js";
+  var ST_itemSearcher_parent = "../js/itemSearcher.js";
+  var ST_enterSearch_parent = "../js/enterSearch.js";
+
   //load navigation bar
   var navbar = $(".navigationBar");
   navbar.load("/assets/core/NavigationBar.html", null, function(responsetxt, statusTxt, xhr) {
     console.log("Finished loading navigation bar!");
-    $.getScript("js/pageLoader.js"); //this enables the navigation bar to work!
-    $.getScript("js/itemSearcher.js");
-    $.getScript("js/enterSearch.js");
+    if(window.location.pathname.includes("articles")) {
+      console.log("using modified script titles");
+      //need to modify script titles bcs dir isn't under root!
+      $.getScript(ST_pageLoader_parent); //this enables the navigation bar to work!
+      $.getScript(ST_itemSearcher_parent);
+      $.getScript(ST_enterSearch_parent);
+    } else {
+      $.getScript(ST_pageLoader); //this enables the navigation bar to work!
+      $.getScript(ST_itemSearcher);
+      $.getScript(ST_enterSearch);
+    }
 
     //empty jumbotron
     if(title!=="Home") {
