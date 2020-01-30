@@ -47,6 +47,14 @@ p {
     font-size: 18px;
 }
 
+.nowrap{
+    clear: both;
+}
+
+.marginTop-3 {
+    padding-top: 8px;
+}
+
 li {
     font-family: linotte_light;
     font-size: 18px;
