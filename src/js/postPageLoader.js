@@ -19,7 +19,7 @@ $(document).ready(function() {
   var navbar = $(".navigationBar");
   navbar.load("/assets/core/NavigationBar.html", null, function(responsetxt, statusTxt, xhr) {
     console.log("Finished loading navigation bar!");
-    if(window.location.pathname.includes("articles")) {
+    if(window.location.pathname.includes("articles") || window.location.pathname.includes("Suggestions")) {
       console.log("using modified script titles");
       //need to modify script titles bcs dir isn't under root!
       $.getScript(ST_pageLoader_parent); //this enables the navigation bar to work!

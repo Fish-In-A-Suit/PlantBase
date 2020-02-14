@@ -101,6 +101,9 @@ function loadPage(pageReference) {
     case "T":
       //load tools page
       break;
+    default:
+      jumbotronContainer.empty();
+      break;
   }
 }
 
@@ -147,8 +150,9 @@ function loadPageWithHighlighDiv(pageReference, contentDivId) {
       $(".content").load(contentInfo);
     }
 
+    //removed 31.01.2019
     //this page title argument is actually page reference lol fix this naming issue!
-    document.title = getPageTitle(pageTitle);
+    //document.title = getPageTitle(pageTitle);
   }
 
 function loadPageContentHighlighted(contentInfo, jumbotronInfo, shouldLoadJumbotron, pageTitle, optionalScript, contentDivId) {

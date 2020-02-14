@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+    <title>PlantBase - Suggestions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/Footer.css">
+    <link rel="stylesheet" href="../css/Suggestions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- this is the icon library -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    
+    <!-- <link href="../css/external/prettify.css" rel="stylesheet"> -->
+
+    
+    <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+
+
+</head>
+    
+<body>
+    <!-- Responsible for loading up the navigation bar -->
+    <div class="navigationBar"></div>
+
+    <!-- content -->
+    <div class="row no-gutters">
+        <div class="container">
+            <h1>Write a suggestion</h1>
+            <p>We are extremely dedicated to provide content that is suitable to the needs of our audience. This page is dedicated to you, our readers, to express your opinion and maybe propose which additions we should add to the webpage. Do you desire a specific topic to be covered? Well, let us know about it and we will do our best to cover it in our articles.</p>
+            <!--
+            <div id="textEditor">
+                <div id="ribbon">
+                    <button id="boldButton" title="Bold"><b>B</b></button>
+                    <button id="italicButton" title="Italic"><em>I</em></button>
+                    <button id="supButton" title="Superscript">X<sup>2</sup></button>
+                    <button id="subButton" title="Subscript">X<sub>2</sub></button>
+                    <button id="strikeButton" title="Strikethorugh"><s>abc</s></button>
+                    <button id="orderedListButton" title="Ordered List">(i)</button>
+                    <button id="unorderedListButton" title="Unordered List">&bull;</button>
+                    <button id="linkButton" title="Link">Link</button>
+                </div>
+
+                <div id="richTextArea">
+                    <iframe id="wysiwyg" name="wysiwyg" frameborder="0"></iframe>
+                </div>
+            </div> -->
+
+            
+            <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+                <div class="btn-group">
+                    <a class="btn" data-edit="bold" title="" data-original-title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+                    <a class="btn" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+                    <a class="btn" data-edit="strikethrough" title="" data-original-title="Strikethrough"><i class="icon-strikethrough"></i></a>
+                    <a class="btn" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+                </div>
+                <div class="btn-group">
+                    <a class="btn" data-edit="insertunorderedlist" title="" data-original-title="Bullet list"><i class="icon-list-ul"></i></a>
+                    <a class="btn" data-edit="insertorderedlist" title="" data-original-title="Number list"><i class="icon-list-ol"></i></a>
+                    <a class="btn" data-edit="outdent" title="" data-original-title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+                    <a class="btn" data-edit="indent" title="" data-original-title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+                </div>
+                <div class="btn-group">
+                    <a class="btn btn-info" data-edit="justifyleft" title="" data-original-title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+                    <a class="btn" data-edit="justifycenter" title="" data-original-title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+                    <a class="btn" data-edit="justifyright" title="" data-original-title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+                    <a class="btn" data-edit="justifyfull" title="" data-original-title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+                </div>
+            </div>
+
+            <div id="editor" contenteditable="true">
+
+            </div>
+
+            <div class="row justify-content-center align-self-center"> <!--this centers the button -->
+                <button type="button" class="btn btn-success" id="sendSuggestionButton">Send your suggestion</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="row no-gutters">
+        <div class="footer-container">
+            
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="../js/jqueryHotkeys.js"></script>
+
+    <script src="../js/storageAccess.js"></script>
+    <script src="../js/globalVariables.js"></script>
+    <script src="../js/utilities.js"></script>
+    <script src="../js/navigationBarLoader.js"></script>
+    <script src="../js/searchQueries.js"></script>
+    <script src="../js/postPageLoader.js"></script>
+    <script src="../js/footerLoader.js"></script>
+    <!-- <script src="../js/textEditor.js"></script> -->
+    <script src="../js/bootstrap-wysiwyg.js"></script>
+    <script type="text/javascript"> $('#editor').wysiwyg(); console.log("editor func called!"); </script>
+    <script src="../js/suggestionSender.js"></script>
+    <!--<script async="" src="//www.google-analytics.com/analytics.js"></script> -->
+    
+    <!-- <script src="../js/external/prettify.js"></script> -->
+
+</body>
