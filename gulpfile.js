@@ -15,6 +15,7 @@ function watch() {
     browserSync.init({
         server: {
            baseDir: "./src",
+           firefox: '-browser "firefox.exe',
            index: "/MainPage.html"
         }
     });
